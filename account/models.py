@@ -6,7 +6,7 @@ class Account(models.Model):
     choice = (('선택1','선택1_1'),('선택2','선택2_2'),('선택3','선택3_3'))
 
 class Test(models.Model):
-    test1 = models.AutoField()
+
    
     test3 = models.CharField(max_length=10)
 
