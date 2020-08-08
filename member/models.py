@@ -11,5 +11,3 @@ class Account(models.Model):
     mem_address = models.CharField(max_length = 50, null=True)
     like_post = models.ManyToManyField(Product, blank=True, related_name="like_user")
 
-
-# Create your models here.

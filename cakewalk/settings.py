@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'account.apps.AccountConfig',
+    'member.apps.MemberConfig',
+    'import_export',
 ]
 
 MIDDLEWARE = [
@@ -132,7 +133,7 @@ EMAIL_PORT = '587'
 
 EMAIL_HOST_USER = 'smsun0329@gmail.com'
 
-EMAIL_HOST_PASSWORD = '!@songms0329'
+EMAIL_HOST_PASSWORD = '내비번은 비밀이얏!'
 
 EMAIL_USE_TLS = True
 

@@ -8,5 +8,5 @@ class StoreAdmin(ImportExportMixin, admin.ModelAdmin):
 class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
     pass
 
-admin.site.register(Store)
-admin.site.register(Product)
+admin.site.register(Store, StoreAdmin)
+admin.site.register(Product, ProductAdmin)

@@ -10,7 +10,7 @@ class Store(models.Model):
     str_phone = models.CharField(max_length=100)
     str_address = models.CharField(max_length=300)
     str_loc_latitude = models.IntegerField(null=True)
-    st_loc_longitude = models.IntegerField(null=True)
+    str_loc_longitude = models.IntegerField(null=True)
 
     def __str__(self):
         return self.str_id
