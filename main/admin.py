@@ -1,12 +1,12 @@
 from django.contrib import admin
-#from .models import 모델이름들
 from import_export.admin import ExportActionMixin, ImportExportMixin, ImportMixin
+from .models import Store, Product
 
-#class model이름(ImportExportMixin, admin.ModelAdmin):
-#    pass
+class StoreAdmin(ImportExportMixin, admin.ModelAdmin):
+    pass
 
-#admin.site.register(class이름, class이름Admin)로 모델별 추가해놓기
+class ProductAdmin(ImportExportMixin, admin.ModelAdmin):
+    pass
 
-
-
-# Register your models here.
+admin.site.register(Store)
+admin.site.register(Product)

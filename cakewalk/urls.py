@@ -16,8 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import main.views
+import account.views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main.views.main, name="main"),
+    path('', main.views.main, name="index"),
+    path('main/<int:product_id>/', main.views.detail, name='detail'),
+    path('like/<int:product_id>', main.views.product_like, name='like'),
 ]
