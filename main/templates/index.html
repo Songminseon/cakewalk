@@ -24,23 +24,32 @@
                 <div class="modal_content">
                     <form action="" class=form_login>
                         <div class="signInup">
-                            <button class="singIn">로그인</button>
-                            <button class="signUp">회원가입</button>
-                            <div class="borderline"></div>
+                            <button class="btn_exit exit_icon"><i class="xi-close"></i></button>
+                            <ul>
+                                <li ><img src="{% static 'images/logo/character.png' %}" alt="" class="logo_icon"></li>
+                                <li ><img src="{% static 'images/logo/logotype.png' %}" alt="" class="logo_name"></li>
+                                <li><div class="borderline"></div></li>
+                            </ul>
                         </div>
                         <div class="signIn_input">
-                            <input type="text" class="login_id" placeholder=" ID"> 
-                            <input type="password" class="login_password" placeholder=" Password">
+                            <input type="text" class="login_id" placeholder=" 아이디를 입력해주세요"> 
+                            <input type="password" class="login_password" placeholder=" 비밀번호를 입력해주세요">
                             <button class="btn_login">로그인</button>
-                            <a href="#">비밀번호를 잊어버리셨나요?</a>
+                            <ul>
+                                <li><a href="#">회원가입</a></li>
+                                <li><i class="xi-minus-thin xi-rotate-90"></i></li>
+                                <li><a href="#">아이디 찾기</a></li>
+                                <li><i class="xi-minus-thin xi-rotate-90"></i></li>
+                                <li><a href="#">비밀번호 찾기</a></li>
+                            </ul>
                             <h4>다른방법으로 로그인하기</h4>
                         </div>
                     </form>
                     <div class="social_login">
-                        <a href=""><img src="{% static 'images/logo/google_logo.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/kakao_logo.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/naver_logo.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/facebook_logo.png' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/logo/google_login.png' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/logo/kakao_login.png' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/logo/naver_login.png' %}" alt=""></a>
+                        <a href=""><img src="{% static 'images/logo/facebook_login.png' %}" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -145,7 +154,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt="">
+                        <div><img src="{% static 'images/cakes/6.JPG' %}" alt="">
                         
                             <div class="hot_product_store_description">
                                 <div class="description_store">
@@ -209,7 +218,7 @@
             <section class="inter_logo">
                 <div class="thisweek_title">
                     <div class="thisweek_title_logo">
-                        <img class="character" src="{% static 'images/logo/character.png' %}" alt="">
+                        <img class="character" src="{% static 'images/logo/character_legs.png' %}" alt="">
                         <h1>이주의 Cakewalk</h1>
                         <img class="character_blue" src="{% static 'images/logo/character_blue.png' %}" alt="">
                     </div>
