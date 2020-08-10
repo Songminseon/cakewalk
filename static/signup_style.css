@@ -1,0 +1,68 @@
+:root {
+    /* Cake Walk */
+    --color-orange:#ea5743; /* 이 색깔!!! */
+    --color-grey: #a3a3a3;
+    --color-light-orange:#fce6e3;
+ 
+     /* Color */
+     --color-white: #ffffff;
+     --color-light-white: #eeeeee;
+     --color-dark-white: #bdbdbd;
+     --color-pink: #fe918d;
+     --color-dark-pink: #ff6863;
+     --color-dark-grey: #4d4d4d;
+     --color-grey: #616161;
+     --color-light-grey: #7c7979;
+     --color-blue: #73aace;
+     --color-yellow: #fff7d1;
+     --color-orange: #feb546;
+     --color-black: #000000;
+ 
+     /* Font size */
+   
+     --font-large: 48px;
+     --font-medium: 28px;
+     --font-regular: 18px;
+     --font-small: 16px;
+     --font-micro: 10px;
+   
+     /* Font weight */
+   
+     --weight-bold: 700;
+     --weight-semi-bold: 600;
+     --weight-regular: 400;
+ 
+     /* Size */
+     --size-border-radius : 4px;
+ 
+     /* Animation */
+     --animation-duration: 300ms;
+   }
+    h2{color: #ea5743;}
+    h3{color: #ea5743;}
+    span{color: #ea5743;}
+
+    div{
+        margin-top: 20px;
+        margin-left: 30px;
+       }
+
+    input[type=text]{
+            width: 400px;
+            height: 45px;
+            font-size: 15px;
+        }
+     
+    input[type=password]{
+        width: 400px;
+        height: 45px;
+        font-size: 15px;
+        }   
+
+
+    button {
+            font-size:15px; 
+            padding: 15px 150px;
+            background-color: #ea5743;
+            border-radius: 30px;   
+        }
