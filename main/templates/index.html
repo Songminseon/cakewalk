@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %} 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,7 +24,8 @@
             <div class="modal hidden">
                 <div class="modal_overlay"></div>
                 <div class="modal_content">
-                    <form action="" class=form_login>
+                    <form method="POST" action="{% url 'login' %}" class=form_login>
+                        {% csrf_token %}
                         <div class="signInup">
                             <button class="btn_exit exit_icon"><i class="xi-close"></i></button>
                             <ul>
@@ -32,9 +35,9 @@
                             </ul>
                         </div>
                         <div class="signIn_input">
-                            <input type="text" class="login_id" placeholder=" 아이디를 입력해주세요"> 
-                            <input type="password" class="login_password" placeholder=" 비밀번호를 입력해주세요">
-                            <button class="btn_login">로그인</button>
+                            <input type="text" class="login_id" placeholder=" 아이디를 입력해주세요" name="user_id"> 
+                            <input type="password" class="login_password" placeholder=" 비밀번호를 입력해주세요" name="password">                                                                            
+                            <button type="submit" class="btn_login">로그인</button>                            
                             <ul>
                                 <li><a href="#">회원가입</a></li>
                                 <li><i class="xi-minus-thin xi-rotate-90"></i></li>
@@ -46,10 +49,10 @@
                         </div>
                     </form>
                     <div class="social_login">
-                        <a href=""><img src="{% static 'images/logo/google_login.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/kakao_login.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/naver_login.png' %}" alt=""></a>
-                        <a href=""><img src="{% static 'images/logo/facebook_login.png' %}" alt=""></a>
+                        <a href="{% provider_login_url 'google' %}"><img src="{% static 'images/logo/google_login.png' %}" alt=""></a>
+                        <a href="{% provider_login_url 'kakao' %}"><img src="{% static 'images/logo/kakao_login.png' %}" alt=""></a>
+                        <a href="{% provider_login_url 'naver' %}"><img src="{% static 'images/logo/naver_login.png' %}" alt=""></a>
+                        <a href="{% provider_login_url 'facebook' %}"><img src="{% static 'images/logo/facebook_login.png' %}" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +73,11 @@
                     <ul>
                         <li class="header_right_search"><a href="#"><i class="xi-search"></i>검색</a></li>
                         <li class="header_right_like"><a href="#"><i class="xi-heart-o"></i>찜</a></li>
+                        {% if user.is_authenticated %}
+                        <li id= "open_login" class="header_right_login"><a href="{% url 'logout' %}">로그아웃</a></li>
+                        {% else %}
                         <li id= "open_login" class="header_right_login"><a href="#">로그인</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </header>
