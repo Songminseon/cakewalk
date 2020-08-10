@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Store, Product
-
+from member.models import Account
 def main(request):
     # products = Product.objects
     # return render(request, 'index.html', {'products':products})
