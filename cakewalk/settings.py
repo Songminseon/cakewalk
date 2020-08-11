@@ -9,13 +9,13 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from django.contrib.messages import constants as messages_constants
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+MESSAGE_LEVEL = messages_constants.DEBUG
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'member.apps.MemberConfig',
     'import_export',
+    'six',  ##
     # allauth
     'allauth',
     'allauth.account',
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
-    'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.facebook',
  
 ]
 
@@ -150,9 +151,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = '587'
 
-EMAIL_HOST_USER = 'smsun0329@gmail.com'
+EMAIL_HOST_USER = 'kkongchi5827@gmail.com'
 
-EMAIL_HOST_PASSWORD = '내비번은 비밀이얏!'
+EMAIL_HOST_PASSWORD = '@kyb8270!!!'
 
 EMAIL_USE_TLS = True
 
