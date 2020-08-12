@@ -7,6 +7,7 @@ def main(request):
     # return render(request, 'index.html', {'products':products})
     return render(request, 'index.html')
 
+
 def detail(request, product_id):
     product_detail = get_object_or_404(Product, pk=product_id)
     return render(request, 'detail.html', {'product':product_detail})

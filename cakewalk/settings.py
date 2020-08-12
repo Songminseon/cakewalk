@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'member.apps.MemberConfig',
     'import_export',
+    'six',
     # allauth
     'allauth',
     'allauth.account',
@@ -145,14 +146,18 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = '587'
 
-EMAIL_HOST_USER = 'smsun0329@gmail.com'
+EMAIL_HOST_USER = 'kkongchi5827@gmail.com'
 
-EMAIL_HOST_PASSWORD = '내비번은 비밀이얏!'
+EMAIL_HOST_PASSWORD = '@kyb8270!!!'
 
 EMAIL_USE_TLS = True
 
