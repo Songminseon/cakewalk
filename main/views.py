@@ -2,10 +2,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Store, Product
 from member.models import Account
+
+
 def main(request):
+    # if request.user.is_authenticated:
+    #     name = Account.objects.get(user=request.user).mem_name
+    # else:
+    #     pass
     # products = Product.objects
     # return render(request, 'index.html', {'products':products})
-    return render(request, 'index.html')
+    return render(request, 'index.html',{'name':name})
 
 
 def detail(request, product_id):
@@ -32,3 +38,6 @@ def product_like(request, product_id):
         product.save()
 
     return render('detail', product_id)
+
+def pay_page(request):  #결제 툴로 이동, 나중에 db에서 가격 받아와서 연동해야함
+    return render(request, 'pay_page.html')
