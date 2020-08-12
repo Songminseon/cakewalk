@@ -20,7 +20,6 @@ const openLogin = document.getElementById("open_login");
 const modal = document.querySelector(".modal");
 const overlay = modal.querySelector(".modal_overlay");
 const closeBtn = modal.querySelector(".btn_exit");
-// const closeBtn = modal.getElementsByClassName("btn_exit");
 
 const openModal = () =>{
     modal.classList.remove("hidden");
@@ -28,6 +27,7 @@ const openModal = () =>{
 const closeModal = () => {
     modal.classList.add("hidden");
 }
+
 overlay.addEventListener("click", closeModal);
 closeBtn.addEventListener("click", closeModal);
 openLogin.addEventListener("click",openModal);

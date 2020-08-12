@@ -18,15 +18,15 @@
     --color-black: #000000;
 
     /* Font size */
-  
+
     --font-large: 48px;
     --font-medium: 28px;
     --font-regular: 18px;
     --font-small: 16px;
     --font-micro: 10px;
-  
+
     /* Font weight */
-  
+
     --weight-bold: 700;
     --weight-semi-bold: 600;
     --weight-regular: 400;
@@ -62,6 +62,9 @@ h3,h4,h5{
 button{
     cursor:pointer;
 }
+.slick-slide{
+    height:0%;
+}
 .modal{
     position:fixed;
     display:flex;
@@ -90,102 +93,69 @@ button{
     text-align:center;
     width:440px;
     height:630px;
-    top:150px;
     z-index:20;
+    top:150px;
 }
-
-.signInup ul{
+.signInup .logo_design{
     display:flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width:100%;
-    height:100%;
 }
 .signInup .btn_exit{
-    position: relative;
-    float:right;
-    padding:15px 20px;
+    align-self:flex-end;
     border:none;
     background-color: var(--color-white);
     color:var(--color-orange);
+    margin-right: 10px;
     font-size: var(--font-regular);
 }
-.signInup ul li .logo_icon{
-    position: relative;
-    width:110px;
-    height:120px;
-    top:-30px;
-}
-.signInup ul li .logo_name{
-    position: relative;
-    top:-70px;
+.signInup .logo_icon{
     width:160px;
-    height:50px;
+    height:70px;
+    padding: 50px 0 20px 0;
 }
-.modal_content .borderline{
-    position: relative;
-    margin-left: 52px;
+.borderline{
     width:350px;
     height:3px;
     border-radius: 40px;
     background-color:var(--color-orange);
-    opacity: 0.5;
-    top:-60px;
+    margin-bottom: 20px;
 }
-
-.signIn_input input{
-    position: relative;
-    width:230px;
-    height:30px;
-    margin-bottom: 15px;
-    border: 1.5px solid var(--color-dark-white);
-    border-radius: 2px;
-    top:-50px;
-}
-.signIn_input .btn_login{
-    position: relative;
-    margin-top: 50px;
-    padding: 20px 90px;
-    border-radius: 30px;
-    background-color: var(--color-orange);
-    color:var(--color-white);
-    border:none;
-    font-size:var(--font-regular);
-    font-weight: bolder;
-    top:-80px;
-}
-.signIn_input{
+.signIn_input .signIn_layout{
     display:flex;
     flex-direction: column;
-    align-items: center;
 }
-.signIn_input ul{
-    display: flex;
-    top:-80px;
+.signIn_input .signIn_layout li{
+    padding-bottom:10px;
 }
-.signIn_input ul li{
-    padding:10px;
-    position: relative;
-    top:-70px;
+.signIn_input input{
+    width:230px;
+    height:30px;
 }
-
-.signIn_input h4{
-    position: relative;
-    color:var(--color-dark-white);
-    top:-60px;
+.signIn_input .btn_login{
+    padding: 10px 90px;
+    border-radius: 30px;
+    background-color: var(--color-orange);
+    border:none;
+    color:var(--color-white);
+    font-size:var(--font-regular);
+    font-weight: bolder;
+    margin-top: 20px;
 }
-.social_login{
+.signIn_input .signUp_layout{
     display:flex;
     justify-content: center;
+}
+.signIn_input h4{
+    color:var(--color-dark-white);
+    padding-top:20px;
 }
 .social_login img{
     width:32px;
     height:32px;
-    position: relative;
     padding:12px;
-    top:-60px;
 }
-
-
 /* 헤더 영역 */
 
 header{
@@ -198,24 +168,77 @@ header .header_logo img{
     height:42px;
     margin-top: 8px;
 }
-.header_menu{
-    padding-right: 300px;
-}
 .header_menu ul{
     display:flex;
 }
 .header_menu li{
-    color:var(--color-black);
     padding-right: 80px;
+}
+.header_right{
+    display:flex;
+    cursor: pointer;
+
 }
 .header_right ul{
     display:flex;
+    transform:translateY(-20%);
 }
-.header_right li{
-    padding-left: 30px;
+
+.header_right .header_right_ul li{
+    padding-right: 30px;
 }
-.header_right li i{
-    padding:5px;
+.header_right .header_right_ul .header_icon{
+    font-size: var(--font-medium);
+}
+
+.dropbtn {
+    background-color:transparent;
+    color: var(--color-black);
+    border: none;
+    font-weight: bolder;
+    transform:translateY(10%);
+}
+
+.dropdown .dropbtn img{
+    width:28px;
+    height:28px;
+    transform:translateY(30%);
+    border:1px solid var(--color-blue);
+    border-radius: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--color-white);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color:var(--color-light-white);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.header_right .header_right_ul2 li{
+    padding-right: 30px;
+    transform:translateY(20%);
 }
 
 /* 메인이벤트 */
@@ -227,7 +250,6 @@ header .header_logo img{
     padding:0;
     width : 100%;
     position : absolute;
-    top : 10px;
 }
 .main_event .slick-dots{
     position : absolute;
@@ -243,7 +265,6 @@ header .header_logo img{
     border-color: #FFFFFF;
     border-style :solid;
     border-width : 1.1px;
-    
     border-radius : 50%;
     display : inline-block;
     
@@ -273,8 +294,8 @@ header .header_logo img{
 }
 
 .main_event img{
-    width:100%;
-    height: 100%;
+    width:1530px;
+    height:640px;
 }
 /* 인기상품 */
 .hot_product_line{
@@ -288,6 +309,7 @@ header .header_logo img{
 .hot_product img{
     height:230px; width:230px;
     margin-left:10px;
+    top:-300px;
 }
 .hot_product .hot_product_title{
     padding: 0 0 20px 10px;
@@ -296,7 +318,7 @@ header .header_logo img{
 }
 .hot_product .slick-dots{
     position : relative;
-    float:right;
+    align-self: flex-end;
     bottom: 340px;
     z-index : 1;
 }
