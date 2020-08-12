@@ -16,6 +16,8 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{% static 'main.js' %}" defer></script>
+   
+    
 
 </head>
 
@@ -39,11 +41,11 @@
                                 <li> <button type="submit" class="btn_login">로그인</button>  </li>
                             </ul>                 
                             <ul class="signUp_layout">
-                                <li><a href="#">회원가입</a></li>
+                                <li><a href="{% url 'signup_page' %}">회원가입</a></li>
                                 <li><i class="xi-minus-thin xi-rotate-90"></i></li>
-                                <li><a href="#">아이디 찾기</a></li>
+                                <li><a href="#" onclick="not_develop()">아이디 찾기</a></li>
                                 <li><i class="xi-minus-thin xi-rotate-90"></i></li>
-                                <li><a href="#">비밀번호 찾기</a></li>
+                                <li><a href="#" onclick="not_develop()">비밀번호 찾기</a></li>
                             </ul>
                             <h4>다른방법으로 로그인하기</h4>
                         </div>
@@ -62,11 +64,11 @@
                 </div>
                 <div class="header_menu">
                     <ul>
-                        <li class="header_menu_home"><a href="#">홈</a></li>
-                        <li class="header_menu_store"><a href="#">스토어</a></li>
-                        <li class="header_menu_community"><a href="#">커뮤니티</a></li>
-                        <li class="header_menu_event"><a href="#">이벤트</a></li>
-                        <li class="header_menu_service"><a href="#">고객센터</a></li>
+                        <li class="header_menu_home"><a href="index">홈</a></li>
+                        <li class="header_menu_store"><a href="#" onclick="not_develop()">스토어</a></li>
+                        <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
+                        <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
+                        <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>
                     </ul>
                 </div>
                 <div class="header_right">
@@ -85,16 +87,16 @@
                                 <i class="xi-caret-down"></i>
                             </button>
                             <div class="dropdown-content">
-                                <li><a href="#">장바구니  </a></li>
-                                <li><a href="#">주문 내역 </a></li>
-                                <li><a href="#">마이페이지</a></li>
+                                <li><a href="#" onclick="not_develop()">장바구니  </a></li>
+                                <li><a href="#" onclick="not_develop()">주문 내역 </a></li>
+                                <li><a href="#" onclick="not_develop()">마이페이지</a></li>
                                 <li class="header_right_login"><a href="{% url 'logout'%}">로그아웃</a></li>
                             </div>
                         </div>
                     {% else %}
                     <ul class="header_right_ul2">
-                        <li class="header_right_search"><a href="#"><i class="xi-search"></i>검색</a></li>
-                        <li class="header_right_like"><a href="#"><i class="xi-heart-o"></i>찜</a></li>
+                        <li class="header_right_search"><a href="#" onclick="not_develop()"><i class="xi-search"></i>검색</a></li>
+                        <li class="header_right_like"><a href="#" onclick="not_develop()"><i class="xi-heart-o"></i>찜</a></li>
                         <li id= "open_login" class="header_right_login">로그인</li>
                     </ul>
                     {% endif %} 
@@ -177,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/11.JPG' %}" alt="">
+                        <div><img src="{% static 'images/cakes/11.jpg' %}" alt="">
                         
                             <div class="hot_product_store_description">
                                 <div class="description_store">
@@ -189,7 +191,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/7.JPG' %}" alt="">
+                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt="">
                         
                             <div class="hot_product_store_description">
                                 <div class="description_store">
@@ -202,7 +204,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="{% static 'images/cakes/8.JPG' %}" alt="">                            
+                            <img src="{% static 'images/cakes/8.jpg' %}" alt="">                            
                             <div class="hot_product_store_description">
                                     <div class="description_store">
                                         <h5>사케이크</h5>
@@ -213,7 +215,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/9.JPG' %}" alt="">
+                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt="">
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>오케이크</h5>
@@ -224,7 +226,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/10.JPG' %}" alt="">
+                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt="">
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>육케이크</h5>
@@ -260,19 +262,19 @@
                         <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/7.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/8.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/9.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/10.JPG' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
                     </div>
                     <h3>Cake of Seoul</h3>
                     <div data-slick='{"slidesToShow": 5.5, "slidesToScroll": 3}' class='store1_slide'>
-                        <div><img src="{% static 'images/cakes/10.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/9.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/8.JPG' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/1.PNG' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/7.JPG' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
@@ -280,11 +282,11 @@
                     </div>
                     <h3>팡 케이크</h3>
                     <div data-slick='{"slidesToShow": 5, "slidesToScroll": 2}' class='store1_slide'>
-                        <div><img src="{% static 'images/cakes/11.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/10.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/9.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/8.JPG' %}" alt=""></div>
-                        <div><img src="{% static 'images/cakes/7.JPG' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/11.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
+                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
                         <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
                     </div>
                 </div>
@@ -316,8 +318,8 @@
                             <li><a href="#">개인정보급급침</a></li>
                         </ul>
                         <ul class="footer_icon">
-                            <li><a href="#"><i class="xi-instagram"></i></a></li>
-                            <li><a href="#"><i class="xi-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/youzosong/?hl=ko"><i class="xi-instagram"></i></a></li>
+                            <li><a href="https://www.facebook.com/likelionatseoultech"><i class="xi-facebook"></i></a></li>
                             <li><a href="#"><i class="xi-youtube-play"></i></a></li>
                             <li><a href="#"><i class="xi-twitter"></i></a></li>
                         </ul>
@@ -346,6 +348,13 @@
                     </div>
                 </div>
             </footer>
+
+            <script>
+                function not_develop(){
+                    alert("아직 개발중입니다.")
+                }
+            </script>
+
 </body>
 
 </html>
