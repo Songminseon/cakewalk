@@ -6,12 +6,11 @@ from member.models import Account
 
 def main(request):
     # if request.user.is_authenticated:
-    #     name = Account.objects.get(user=request.user).mem_name
+    #     user_n = Account.objects.get(user=request.user)
+    #     name = user_n.mem_name
     # else:
-    #     pass
-    # products = Product.objects
-    # return render(request, 'index.html', {'products':products})
-    return render(request, 'index.html',{'name':name})
+    #     name = ""
+    return render(request, 'index.html')
 
 
 def detail(request, product_id):
