@@ -11,6 +11,9 @@ def main(request):
     # else:
     #     name = ""
     return render(request, 'index.html')
+    
+def store(request):
+    return render(request, 'store.html')
 
 
 def detail(request, product_id):
