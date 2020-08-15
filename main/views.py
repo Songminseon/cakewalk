@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Store, Product
 from member.models import Account
-
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 def main(request):
     # if request.user.is_authenticated:

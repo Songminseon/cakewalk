@@ -69,6 +69,9 @@ def login(request):
     if request.method == 'POST':
         user_id = request.POST['user_id']
         password = request.POST['password']
+
+        if user_id == "" or password == "":
+            messages.infor(request, '빈칸을 채워주세요!')
         #Login html에서 입력한 정보랑 user DB랑 비교하는 과정
         user = auth.authenticate(request, username=user_id, password=password)
         # 유저 인증 결과에 따라 로그인 하거나, 에러 메세지를 전달
