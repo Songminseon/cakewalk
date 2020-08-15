@@ -2,15 +2,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Store, Product
 from member.models import Account
-
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 def main(request):
-    # if request.user.is_authenticated:
-    #     user_n = Account.objects.get(user=request.user)
-    #     name = user_n.mem_name
-    # else:
-    #     name = ""
-    return render(request, 'index.html')
+    if request.user.is_authenticated:
+        if request.user is None:
+            pass
+        else:
+            user_n = Account.objects.get(user=request.user)
+            name = user_n.mem_name
+    else:
+        messages.info(request,'다시 시도해주세요.')
+        name = ""
+    return render(request, 'index.html', {'name':name})
 
 
 def detail(request, product_id):
