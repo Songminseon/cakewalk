@@ -1,0 +1,78 @@
+.mail_parent {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.mail_wrap{
+display: grid;
+grid-template-rows: auto 1fr auto;
+margin : 20px;
+}
+
+.top {
+width : 550px;
+background-color : white;
+height : 30px;
+padding : 5px 0px 5px 0px;
+border-bottom-style:solid;
+border-bottom-color : gainsboro;
+}
+
+.top #logo {
+width:125px;
+padding: 0;
+}
+
+.middle {
+width : 550px;
+background-color : white;
+height : auto;
+padding : 15px 0px 15px 0px;
+}
+
+#email_title{
+margin : 5px 0px 5px 0px;
+}
+.middle .mail_info {
+white-space : pre;
+font-weight:lighter;
+margin:0;
+padding : 0;
+line-height : 170%;
+display : inline-block;
+}
+.middle .mail_name{
+color : #ff6863;
+font-weight: bold;
+display : inline-block;
+margin :0;
+}
+
+.middle .mail_button{
+margin : 20px 0 ;
+width : 150px;
+background-color: #ea5743; 
+color : white;
+border: 1px solid #ea5743;
+border-radius: 5px;
+padding: 10px 20px;
+cursor : pointer;
+font-size : 14px;
+margin : 10px;
+}
+.bottom {
+width : 550px;
+background-color : white;
+border-top-style:solid;
+border-top-color : gainsboro;
+height : auto;
+padding : 15px 0px 15px 0px;
+}
+
+.bottom h6{
+color : lightslategray;
+white-space : pre;
+margin :0;
+line-height : 150%;
+}
