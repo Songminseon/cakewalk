@@ -38,6 +38,13 @@
                             <ul class="signIn_layout">
                                 <li> <input type="text" class="login_id" placeholder=" 아이디를 입력해주세요" name="user_id"> </li>
                                 <li><input type="password" class="login_password" placeholder=" 비밀번호를 입력해주세요" name="password">  </li>
+                                <div style="margin: 0 0 0 30px; color:red; " class="messages">
+                                    {% if messages %}
+                                    {% for message in messages %}
+                                    {{ message.message }}
+                                    {% endfor %}
+                                    {% endif %}
+                                </div>  
                                 <li> <button type="submit" class="btn_login">로그인</button>  </li>
                             </ul>                 
                             <ul class="signUp_layout">
@@ -79,11 +86,9 @@
                         <li class="header_icon"><a href="#"><i class="xi-heart-o"></i></a></li>
                     </ul>
                         <div class="dropdown">
-                            <button class="dropbtn">
-                                <!-- 프로필사진 -->
+                            <button class="dropbtn">                                                  
                                 <img src="{% static 'images/logo/favicon_scale.png' %}" alt="">
-                                <!-- (백앤드) 닉네임 넣어주세요 -->
-                                {{name}}
+                                {{nickname}}
                                 <i class="xi-caret-down"></i>
                             </button>
                             <div class="dropdown-content">

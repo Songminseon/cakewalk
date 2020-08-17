@@ -7,15 +7,13 @@ from django.contrib import messages
 
 def main(request):
     if request.user.is_authenticated:
-        if request.user is None:
-            pass
-        else:
-            user_n = Account.objects.get(user=request.user)
-            name = user_n.mem_name
+        now_login = Account.objects.get(user=request.user)
+        nickname=now_login.mem_nickname
+        
     else:
-        messages.info(request,'다시 시도해주세요.')
-        name = ""
-    return render(request, 'index.html', {'name':name})
+        nickname=""
+    
+    return render(request, 'index.html', {'nickname':nickname})
 
 def store(request):
     return render(request, 'store.html')
