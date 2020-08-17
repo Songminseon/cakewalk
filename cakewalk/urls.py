@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main.views.main, name="index"),
-    path('store/', main.views.main, name="store"),
+    path('main/store/', main.views.main, name="store"),
     path('member/signup_page/', member.views.signup_page, name="signup_page"),
     path('main/<int:product_id>/', main.views.detail, name='detail'),
     path('like/<int:product_id>', main.views.product_like, name='like'),
@@ -34,6 +34,6 @@ urlpatterns = [
     path('member/accounts/', include('allauth.urls')),
     path('member/activate/<str:uid64>/<str:token>/', member.views.activate , name='activate'), 
     path('main/pay', main.views.pay_page, name="pay_page"),
-    path('store_detail', main.views.store_detail, name="store_detail"),
+    path('main/store_detail', main.views.store_detail, name="store_detail"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

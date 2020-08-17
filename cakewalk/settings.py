@@ -157,7 +157,7 @@ EMAIL_PORT = '587'
 
 EMAIL_HOST_USER = 'kkongchi5827@gmail.com'
 
-EMAIL_HOST_PASSWORD = '@kyb8270!!!'
+EMAIL_HOST_PASSWORD = '비밀번호안알려줌'
 
 EMAIL_USE_TLS = True
 
