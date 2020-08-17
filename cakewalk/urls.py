@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main.views.main, name="index"),
+    path('store/', main.views.main, name="store"),
     path('member/signup_page/', member.views.signup_page, name="signup_page"),
     path('main/<int:product_id>/', main.views.detail, name='detail'),
     path('like/<int:product_id>', main.views.product_like, name='like'),

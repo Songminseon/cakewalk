@@ -17,6 +17,9 @@ def main(request):
         name = ""
     return render(request, 'index.html', {'name':name})
 
+def store(request):
+    return render(request, 'store.html')
+
 
 def detail(request, product_id):
     product_detail = get_object_or_404(Product, pk=product_id)
