@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cakewalk</title>
-    <link rel="shortcut icon" href="images/logo/favicon_scale.png">
+    <link rel="shortcut icon" href="{% static 'images/logo/favicon_scale.png' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'slick.css' %}">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -65,7 +65,7 @@
                 <div class="header_menu">
                     <ul>
                         <li class="header_menu_home"><a href="{% url 'index' %}">홈</a></li>
-                        <li class="header_menu_store"><a href="#" onclick="not_develop()">스토어</a></li>
+                        <li class="header_menu_store"><a href="{% url 'store_detail' %}">스토어</a></li>
                         <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
                         <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
                         <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>

@@ -32,5 +32,7 @@ urlpatterns = [
     path('member/signup/', member.views.signup , name='signup'),    
     path('member/accounts/', include('allauth.urls')),
     path('member/activate/<str:uid64>/<str:token>/', member.views.activate , name='activate'), 
-    path('main/pay', main.views.pay_page, name="pay_page")
+    path('main/pay', main.views.pay_page, name="pay_page"),
+    path('store_detail', main.views.store_detail, name="store_detail"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
