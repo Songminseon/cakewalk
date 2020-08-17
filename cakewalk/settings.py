@@ -113,10 +113,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-AUTHENTICATION_BACKENDS=(
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+# AUTHENTICATION_BACKENDS=(
+#     'django.contrib.auth.backends.ModelBackend',    
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )
 SITE_ID = 1
 
 
@@ -150,14 +150,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-
 EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_PORT = '587'
 
 EMAIL_HOST_USER = 'kkongchi5827@gmail.com'
 
-EMAIL_HOST_PASSWORD = '@kyb8270!!!'
+EMAIL_HOST_PASSWORD = '@kyb8270!@#'
 
 EMAIL_USE_TLS = True
 

@@ -2,15 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Store, Product
 from member.models import Account
-
+from django.contrib.auth.models import User
 
 def main(request):
-    # if request.user.is_authenticated:
-    #     user_n = Account.objects.get(user=request.user)
-    #     name = user_n.mem_name
-    # else:
-    #     name = ""
-    return render(request, 'index.html')
+    if request.user.is_authenticated:
+        now_login = Account.objects.get(user=request.user)
+        nickname=now_login.mem_nickname
+    else:
+        nickname=""
+    return render(request, 'index.html', {'nickname':nickname})
 
 
 def detail(request, product_id):
