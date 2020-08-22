@@ -1,68 +1,100 @@
-:root {
-    /* Cake Walk */
-    --color-orange:#ea5743; /* 이 색깔!!! */
-    --color-grey: #a3a3a3;
-    --color-light-orange:#fce6e3;
- 
-     /* Color */
-     --color-white: #ffffff;
-     --color-light-white: #eeeeee;
-     --color-dark-white: #bdbdbd;
-     --color-pink: #fe918d;
-     --color-dark-pink: #ff6863;
-     --color-dark-grey: #4d4d4d;
-     --color-grey: #616161;
-     --color-light-grey: #7c7979;
-     --color-blue: #73aace;
-     --color-yellow: #fff7d1;
-     --color-orange: #feb546;
-     --color-black: #000000;
- 
-     /* Font size */
-   
-     --font-large: 48px;
-     --font-medium: 28px;
-     --font-regular: 18px;
-     --font-small: 16px;
-     --font-micro: 10px;
-   
-     /* Font weight */
-   
-     --weight-bold: 700;
-     --weight-semi-bold: 600;
-     --weight-regular: 400;
- 
-     /* Size */
-     --size-border-radius : 4px;
- 
-     /* Animation */
-     --animation-duration: 300ms;
-   }
-    h2{color: #ea5743;}
-    h3{color: #ea5743;}
-    span{color: #ea5743;}
+*{
+    outline:none;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    padding:25px 100px 100px 100px;
+}
+a{
+}
+h2,h3,span{
+    margin:0;
+    color:orangered;
+}
+.title{
+    font-size:32px;
+    margin-bottom:20px;
+}
+h2,h3 {
+    margin-top:20px;
+}
+#header{
+    display:flex;
+    justify-content: space-between;
+}
+#logo{
+    width:200px;
+    height:80px;
+}
+.exit_btn{
+    border:none;
+    background-color: transparent;
+    font-size:24px;
+    cursor: pointer;
+}
+.exit_btn a{
+    text-decoration:none;
+    color:orangered;
+}
+.register-form{
+    position: absolute;
+    width:500px;
+    height:700px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-30%);
+    padding-bottom:200px;
+}
+.signup{
+    display:flex;
+    flex-direction: column;
+}
+.color_grey{
+    color:lightgray;
+}
+.signup >.signup_input{
+    padding:10px 200px 10px 5px;
+    margin:10px 0;
+}
+#btnJoin{
+    padding:5px 150px;
+    background-color: orangered;
+    border:none;
+    border-radius: 50px;
+    margin-top:30px;
+}
+.checkbox{
+    padding:10px 0;
+    width:500px;
+    justify-content: space-between;
+}
 
-    div{
-        margin-top: 20px;
-        margin-left: 30px;
-       }
-
-    input[type=text]{
-            width: 400px;
-            height: 45px;
-            font-size: 15px;
-        }
-     
-    input[type=password]{
-        width: 400px;
-        height: 45px;
-        font-size: 15px;
-        }   
-
-
-    button {
-            font-size:15px; 
-            padding: 15px 150px;
-            background-color: #ea5743;
-            border-radius: 30px;   
-        }
+input[type="checkbox"]{
+    position: absolute;
+    left:-3000%;
+}
+input[type="checkbox"] + label:before{ 
+    content:"";
+    display:inline-block;
+    width:15px;
+    height:15px;
+    border:1px solid black;
+    position: relative;
+    top:3px;
+    border-radius: 3px;
+    margin-right:4px;
+}
+input[type="checkbox"]:checked + label:before{
+    transition: all 0.5s;
+    background:url(images/store_button/checked.PNG) no-repeat; width:15px; height:15px;
+}
+.checkbox a{
+    display:absolute;
+    float:right;
+}
+#btnJoin h1{
+    color:white;
+}
