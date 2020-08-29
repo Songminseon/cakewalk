@@ -1,48 +1,93 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="ko">
+    <head>
+        <meta charset="utf-8"> 
+            <title> login </title>
+            <link rel="stylesheet" href="{% static 'signup_style.css' %}">
+    </head>
+    <body>       
+      <div id="header"> 
+        <img src="{% static 'images/logo/logotype.png' %}" title="케이크워크 로고" id="logo"></a>  
+        <button class="exit_btn"><a href="{% url 'index' %}">X</a></button>
+      </div>
+      <form class="register-form">
+      <div class="signup">
+                <h2 class="title">회원가입</h2>   
+                <h3> 아이디 </h3>
+                <input class="signup_input" type="text" placeholder="아이디입력(5~11자)">
+                <h3> 비밀번호</h3>
+                <input class="signup_input" type="password" placeholder="비밀번호(숫자, 영문조합 최소 8자)"/>
+                <h3> 이메일 </h3>                  
+                <input class="signup_input" type="email" placeholder="이메일" >                    
+                <h3> 닉네임 </h3>
+                <input class="signup_input" type="text" placeholder="닉네임(2~15자)"/>
+                
+                <div class="checkbox">
+                <input type="checkbox" id="chk1" onclick="javascript:CheckAll()" >
+                <label for="chk1">
+                약관 전체동의
+                </label>
+                </div>
 
-<head>
-  <meta charset="utf-8">
-  <title> login </title>
-  <link rel="stylesheet" href="{% static 'signup_style.css' %}">
-</head>
+                <div class="checkbox">
+                <input type="checkbox" id="chk2" name="chk">
+                <label for="chk2">
+                만 14세 미만 가입 제한
+                <span>(필수)</span>
+                </label>
+                </div>
 
-<body>
-  <div class="login-page">
-    <div class="form">
-      <h2>회원가입</h2>
-      <form method="POST" action="{% url 'signup' %}" class="register-form">
-        {% csrf_token %}
-        <h3> 이름 </h3>
-        <input type="text" placeholder="이름" name="user_name" />
-        <h3> 핸드폰 번호 </h3>
-        <input type="text" placeholder="핸드폰 번호" name="phone_num" />
-        <h3> 아이디 </h3>
-        <input type="text" placeholder="아이디입력(5~11자)" name="user_id" />
-        <h3> 비밀번호</h3>
-        <input type="password" placeholder="비밀번호(숫자, 영문조합 최소 8자)" name="password1" /> <br><br>
-        <input type="password" placeholder="비밀번호 확인" name="password2" />
-        <h3> 이메일 </h3>
-        <input type="email" placeholder="이메일" name="email" />
-        <h3> 닉네임 </h3>
-        <input type="text" placeholder="닉네임(2~15자)" name="nickname" /> <br><br>  
-        <div style="margin: 0 0 10px 0; color:red; align-content: center;" class="messages">
-          {% if messages %}
-          {% for message in messages %}
-          {{ message.message }}
-          {% endfor %}
-          {% endif %}
-        </div> 
-        <input type="checkbox"> <span>약관 전체동의</span> <br>
-        <input type="checkbox"> 만 14세 미만 가입 제한<span>(필수)</span> <br>
-        <input type="checkbox"> 개인정보 수집 이용동의<span>(필수)</span> <a href="#">보기</a> <br>
-        <input type="checkbox"> 케이크워크 이용약관<span>(필수)</span> <a href="#">보기</a> <br>
-        <input type="checkbox"> 마케팅 활용 및 광고성 정보 수신 동의(선택) <a href="#">보기</a> <br><br>
-        <button type="submit">가입완료</button>
+                <div class="checkbox">
+                <input type="checkbox" id="chk3" name="chk">
+                <label for="chk3">
+                  개인정보 수집 이용동의
+                <span>(필수)</span>
+                <a href="#">보기</a>
+                </label>
+                </div>
+
+                <div class="checkbox">
+                <input type="checkbox" id="chk4" name="chk">
+                <label for="chk4">
+                  케이크워크 이용약관 
+                <span>(필수)</span>
+                <a href="#">보기</a>
+                </label>
+                </div>
+
+                <div class="checkbox">
+                <input type="checkbox" id="chk5" name="chk">
+                <label for="chk5">
+                마케팅 활용 및 광고성 정보 수신 동의
+                <span class="color_grey">(선택)</span> 
+                <a href="#">보기</a>
+                </label>
+                </div>
+
+                <button type="button" id="btnJoin">
+                <h1>가입완료</h1>
+                </button>
+      </div>
       </form>
-    </div>
-  </div>
-</body>
 
+      <script type="text/javascript">
+      var check = false;
+      function CheckAll(){
+            var chk = document.getElementsByName("chk");
+            if(check == false){
+            check = true;
+            for(var i=0; i<chk.length;i++){                                                                    
+            chk[i].checked = true;     //모두 체크
+            }
+            }else{
+            check = false;
+            for(var i=0; i<chk.length;i++){                                                                    
+            chk[i].checked = false;     //모두 해제
+            }
+            }
+            }
+      </script>
+    </body>
 
 </html>
