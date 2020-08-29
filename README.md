@@ -1,20 +1,25 @@
 # CakeWalk Prototype
 
-# 사용프로그램
-## Python
-## Django
+## 사용프로그램
+### Python
+### Django
 
-# 라이브러리
-## django-allauth
-## django-import-export
-## six
+## 라이브러리
+### django-allauth
+### django-import-export
+### six
 
 # Git에 올릴 때 다음같은 사항 꼭 지켜주세요
 ## 1. github에 접속하여 본인이 작업한 파일이 최신파일인지 꼭 확인하고, branch를 이용하여 작업할 것
+
 ## branch이름은 develop_본인성(ex.develop_song)형식으로 지어서 해주세요
 ## 2. 자신이 작업한 부분을 올릴 때 git add -A로 전체로 올리는게 아니라 아닌 본인이 수정한 부분만 올려주세요.(git add 본인이 한 폴더이름 or 파일 로 적으시면 그 부분만 올라가집니다.)
+
+
 ## 만약 본인이 수정한 파일이 많을 시 .gitignore을 이용하여 dbsqlite랑 그와 관련한 로그파일등 모두 gitignore시키고 올릴것
 ## 3. git commit할때 다른사람이 봤을 때 본인이 무엇을 했는지 확실하게 알 수 있도록 적을것!
+
+
 ## 4. 가능하면 python 3.7를 써주시면 감사하겠습니다만 큰차이는 없을 듯 합니다.
 
 
