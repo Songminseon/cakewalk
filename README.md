@@ -22,6 +22,7 @@
 
 ## 4. 가능하면 python 3.7를 써주시면 감사하겠습니다만 큰차이는 없을 듯 합니다.
 
+## 5. db를 건들일 때는 저한테 말해주세요. 테스트 계정 ID : account1  password : cakewalk   (account1~account5까지 있음)
 
 # 지금부터 README.md를 써서 여러분들의 개발 현황을 적어서 같이 푸쉬해주세요
 ## 8월 29일(written by Minseon)
@@ -51,3 +52,21 @@
 ##### 종훈 : 회원db를 이용한 기능구현
 ##### 민선 : db model다시하고 임의값 데이터 넣을 예정
 ##### 민정 : 필터링 구현
+
+
+## 9월5일
+### 프론트
+#### 시뮬레이션 진행 중
+#### 디자인 대부분 완성
+#### 필터링 페이지 진행 중
+
+### 백엔드
+#### db모델링추가
+##### product에 product_grade, product_column추가
+##### Order model, Review model 추가
+
+
+### 추가 개발사항
+#### 지원금 나오는 대로 웹 도메인 구입예정
+#### 찜기능 추가
+#### db modeling (sns column추가, store review 추가)
