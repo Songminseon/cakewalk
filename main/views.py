@@ -18,6 +18,12 @@ def main(request):
 def store(request):
     return render(request, 'store.html')
 
+def store_cake(request):
+    return render(request, 'store_cake.html')
+
+def store_market(request):
+    return render(request, 'store_market.html')
+
 
 def detail(request, product_id):
     product_detail = get_object_or_404(Product, pk=product_id)
