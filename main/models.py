@@ -25,6 +25,11 @@ class Product(models.Model):
     product_default_price = models.PositiveIntegerField()
     # detail이 설명에 나올 부분
     product_detail = models.CharField(max_length=100)
+
+    #나중에 sorting용도 주문많은순, 별점순
+    product_amount = models.PositiveIntegerField(default=0)
+    product_grade = models.FloatField(default=0)   
+    
     
     WHITE = 'WH'
     PINK = 'PI'
