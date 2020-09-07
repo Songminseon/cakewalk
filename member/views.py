@@ -14,10 +14,8 @@ from django.core.mail import EmailMessage
 from .tokens import account_activation_token
 from django.utils.encoding import force_bytes, force_text
 
-
 def signup_page(request):
     return render(request, 'signup.html')
-
 
 def signup(request):
     if request.method == 'POST':
@@ -56,15 +54,9 @@ def signup(request):
             mail_subject = "[CakeWalk] 회원가입 인증 메일입니다."
             user_email = account.mem_email
             email = EmailMessage(mail_subject, message, to=[user_email])
-            email.send()      
-            return HttpResponse('''
-    <div style="font-family: 'Noto Sans KR',sans-serif;display:flex;flex-direction: column;padding-left:35rem;transform:translateY(50%);";>
-    <img src="logotype.png" alt=""style="width:200px; height:80px;transform:translateX(-8%);">
-    <h1 style="color: #ea5743;padding-bottom:15px;margin-top: 0;">이메일 주소인증</h1>
-    <div style="padding-bottom:20px;">안녕하세요. 케이크워크입니다. <br><br>입력하신 이메일 <span style="color: #ea5743">{0}</span>으로 인증 링크가 전송되었습니다.</div>
-    <button style="width:20%;padding:20px;background-color: orangered;border:none;font-size:18px;font-weight: bolder;">
-    <a href="#" style="text-decoration:none;color:white;width:100px;">홈으로 가기</a></button></div>
-    '''.format(user_email))
+            email.send()                  
+
+            return render(request, 'signup_message.html', {'mem_email':user_email})
         return redirect('index')
     else:
         return render(request, 'index.html')
@@ -95,7 +87,6 @@ def logout(request):
 def activate(request, uid64, token):
     uid = force_text(urlsafe_base64_decode(uid64))
     user = User.objects.get(pk=uid)
-    
 
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
