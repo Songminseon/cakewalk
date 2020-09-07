@@ -11,17 +11,31 @@
         <img src="{% static 'images/logo/logotype.png' %}" title="케이크워크 로고" id="logo"></a>  
         <button class="exit_btn"><a href="{% url 'index' %}">X</a></button>
       </div>
-      <form class="register-form">
-      <div class="signup">
-                <h2 class="title">회원가입</h2>   
+      <form method="POST" action="{% url 'signup' %}" class="register-form">
+        <div class="signup">
+                <h2 class="title">회원가입</h2>              
+                <div style="margin: 0 0 0 0px; color:red; " class="messages">
+                  {% if messages %}
+                  {% for message in messages %}
+                  {{ message.message }}
+                  {% endfor %}
+                  {% endif %}
+                </div> 
+                {% csrf_token %}
+                <h3> 이름 </h3>
+                <input class="signup_input" type="text" placeholder="이름" name="user_name" />
+                <h3> 핸드폰 번호 </h3>
+                <input class="signup_input" type="text" placeholder="핸드폰 번호" name="phone_num" />   
                 <h3> 아이디 </h3>
-                <input class="signup_input" type="text" placeholder="아이디입력(5~11자)">
+                <input class="signup_input" type="text" placeholder="아이디입력(5~11자)" name="user_id">                
                 <h3> 비밀번호</h3>
-                <input class="signup_input" type="password" placeholder="비밀번호(숫자, 영문조합 최소 8자)"/>
+                <input class="signup_input" type="password" placeholder="비밀번호(숫자, 영문조합 최소 8자)" name="password1"/>
+                <h3> 비밀번호 확인</h3>
+                <input class="signup_input" type="password" placeholder="비밀번호 확인" name="password2"/>
                 <h3> 이메일 </h3>                  
-                <input class="signup_input" type="email" placeholder="이메일" >                    
+                <input class="signup_input" type="email" placeholder="이메일" name="email" >                    
                 <h3> 닉네임 </h3>
-                <input class="signup_input" type="text" placeholder="닉네임(2~15자)"/>
+                <input class="signup_input" type="text" placeholder="닉네임(2~15자)" name="nickname"/>
                 
                 <div class="checkbox">
                 <input type="checkbox" id="chk1" onclick="javascript:CheckAll()" >
@@ -63,12 +77,11 @@
                 <span class="color_grey">(선택)</span> 
                 <a href="#">보기</a>
                 </label>
-                </div>
-
-                <button type="button" id="btnJoin">
+                </div>              
+                <button type="submit" id="btnJoin">
                 <h1>가입완료</h1>
                 </button>
-      </div>
+        </div>
       </form>
 
       <script type="text/javascript">
