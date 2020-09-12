@@ -8,19 +8,16 @@ body{
     flex-direction: column;
     padding:25px 100px 100px 100px;
 }
-a{
-}
+
 h2,h3,span{
-    margin:0;
+    margin:10px 0 0 0;
     color:orangered;
 }
 .title{
     font-size:32px;
     margin-bottom:20px;
 }
-h2,h3 {
-    margin-top:20px;
-}
+
 #header{
     display:flex;
     justify-content: space-between;
@@ -51,13 +48,15 @@ h2,h3 {
 .signup{
     display:flex;
     flex-direction: column;
+    padding-bottom:100px;
+
 }
 .color_grey{
     color:lightgray;
 }
 .signup >.signup_input{
     padding:10px 200px 10px 5px;
-    margin:10px 0;
+    margin:8px 0;
 }
 #btnJoin{
     padding:5px 150px;
