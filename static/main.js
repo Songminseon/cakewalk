@@ -13,13 +13,13 @@ $('.hot_store').slick({
     mobileFirst:true,
     responsive: [
         {
-            breakpoint:1500,
+            breakpoint:1600,
             settings: {
                 slidesToShow:5
             }
         },
         {
-            breakpoint:1300,
+            breakpoint:1400,
             settings: {
                 slidesToShow:4
             }
@@ -31,7 +31,7 @@ $('.hot_store').slick({
             }
         },
         {
-            breakpoint:720,
+            breakpoint:800,
             settings: {
                 slidesToShow:2
             }
@@ -49,6 +49,42 @@ $('.hot_store').slick({
 
 $('.store1_slide').slick({
     dots: true,
+    responsive: [
+        {
+            breakpoint:1600,
+            settings: {
+                slidesToShow:5
+            }
+        },
+        {
+            breakpoint:1400,
+            settings: {
+                slidesToShow:4
+            }
+        },
+        {
+            breakpoint:1050,
+            settings: {
+                slidesToShow:3,
+                slidesToScroll:1
+            }
+        },
+        {
+            breakpoint:720,
+            settings: {
+                slidesToShow:2,
+                slidesToScroll:1
+            }
+        },
+        
+        {
+            breakpoint:0,
+            settings: {
+                slidesToShow:1,
+                slidesToScroll:1
+            }
+        }
+    ]
 });
 
 const openLogin = document.getElementById("open_login");
