@@ -20,11 +20,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{% static 'store_style.css' %}">
-        <!--range slider-->
-        <!-- <link rel="stylesheet" href="https://demos.jquerymobile.com/1.4.2/css/themes/default/jquery.mobile-1.4.2.min.css">  
-        <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.js"></script>
-        <script src="https://demos.jquerymobile.com/1.4.2/js/jquery.mobile-1.4.2.min.js"></script> -->
-
     </head>
     <body>
         <header>
@@ -72,48 +67,52 @@
             <div class = "header_below_container">
                 <ul class="filter_ul">
                     <li><h3 id="filter_title_font">가까이에 있는 예쁜 케이크를 찾아보세요!    </h3></li>
-                    
                     <li>
-                        <div class="dropdown">
-                            <button class="dropdownbtn" type="button" data-toggle="dropdown">
-                              광역시/도
-                              <span class="caret">         </span>
-                            </button>
-                            <ul class="dropdown-content" >
-                              <li><a href="#">서울특별시</a></li>
-                              <li><a href="#">경기도</a></li>
-                              <li><a href="#">강원도</a></li>
-                              <li><a href="#">경상북도</a></li>
-                              <li><a href="#">경상남도</a></li>
-                              <li><a href="#">전라북도</a></li>
-                              <li><a href="#">전라남도</a></li>
-                              <li><a href="#">충청북도</a></li>
-                              <li><a href="#">충청남도</a></li>
-                            </ul>
-                        </div>
+                        <ul class="filter_ul">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="dropdownbtn" type="button" data-toggle="dropdown">
+                                      광역시/도
+                                      <span class="caret">         </span>
+                                    </button>
+                                    <ul class="dropdown-content" >
+                                      <li><a href="#">서울특별시</a></li>
+                                      <li><a href="#">경기도</a></li>
+                                      <li><a href="#">강원도</a></li>
+                                      <li><a href="#">경상북도</a></li>
+                                      <li><a href="#">경상남도</a></li>
+                                      <li><a href="#">전라북도</a></li>
+                                      <li><a href="#">전라남도</a></li>
+                                      <li><a href="#">충청북도</a></li>
+                                      <li><a href="#">충청남도</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li > <!--class="main_menu"-->
+                                <div class="dropdown">
+                                    <button class="dropdownbtn" type="button" data-toggle="dropdown">
+                                      시/군/구
+                                      <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-content" >
+                                        <li><a href="#">강남구</a></li>
+                                        <li><a href="#">강서구</a></li>
+                                        <li><a href="#">강북구</a></li>
+                                        <li><a href="#">강동구</a></li>
+                                        <li><a href="#">관악구</a></li>
+                                        <li><a href="#">광진구</a></li>
+                                        <li><a href="#">구로구</a></li>
+                                        <li><a href="#">노원구</a></li>
+                                        <li><a href="#">도봉구</a></li>
+                                      </ul>
+                                </div>
+                            </li>
+                            <li><button class="filter_button2">설정</button></li>
+                        </ul>
                     </li>
-                    
-                    <li > <!--class="main_menu"-->
-                        <div class="dropdown">
-                            <button class="dropdownbtn" type="button" data-toggle="dropdown">
-                              시/군/구
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-content" >
-                                <li><a href="#">강남구</a></li>
-                                <li><a href="#">강서구</a></li>
-                                <li><a href="#">강북구</a></li>
-                                <li><a href="#">강동구</a></li>
-                                <li><a href="#">관악구</a></li>
-                                <li><a href="#">광진구</a></li>
-                                <li><a href="#">구로구</a></li>
-                                <li><a href="#">노원구</a></li>
-                                <li><a href="#">도봉구</a></li>
-                              </ul>
-                        </div>
-                    </li>
-                    <li><button class="filter_button2">설정</button></li>
                 </ul>
+                
             </div>
             
         </section>
@@ -129,8 +128,9 @@
                     <div class="bold_font_button market"><a href="#" onclick="market_area()">마켓별 보기</a></div>
                 </button>
             </div>
+
             
-            
+       
             <section id="cake_area" class="grey_box">
                 <ul class="grey_box_ul">
                     <li class="grey_box_button"><p class="grey_box_normal_font">필터 설정        |</p></li>
