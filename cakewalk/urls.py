@@ -38,5 +38,6 @@ urlpatterns = [
     path('main/store_cake/', main.views.store_cake, name="store_cake"),
     path('main/store_market/', main.views.store_market, name="store_market"),
     path('main/market/', main.views.market, name="store_market"),
+    path('main/simulation/', main.views.simulation, name="simulation"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

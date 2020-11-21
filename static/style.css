@@ -172,7 +172,6 @@ input::placeholder{
 header{
     display:flex;
     justify-content: space-around;
-    padding-top: 10px;
 }
 header .header_logo img{
     width:132px;
@@ -277,7 +276,6 @@ header .header_logo img{
     position : absolute;
     left:7%;
     bottom:10%;
-
 }
 .main_event .slick-dots li{
     list-style: none;
@@ -317,7 +315,11 @@ header .header_logo img{
 
 .main_event img{
     width:100%;
+<<<<<<< HEAD
     height:640px;
+=======
+    height:38rem;
+>>>>>>> e9a796ed17177e58ebd7f7aa39194db47094b9d9
 }
 
 .main_event .main_event_button_list{
@@ -403,59 +405,29 @@ margin : 10px;
 }
 .hot_product_price{
     width: 15rem; height:15rem;
-    position: relative;
-    top:27px;
-    left:5%;
+    position: absolute;
+    top:250px;
+    left:20px;
 }
 /* 슬라이드 로고 영역 */
-.inter_logo{
-    margin-bottom: 100px;
-}
+
 .thisweek_title{
-    display:flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-    left:35%;
-}
-.thisweek_title h1{
-    padding-top: 20px;
-    font-size:var(--font-large)
-}
-.thisweek_title h3{
-    position: absolute;
-    /* left:25%; */
-    bottom:5px;
-}
-.thisweek_title_logo{
-    display:flex;
-    justify-content: center;
+    width:80%;
 }
 .thisweek_title .character{
-    position: relative;
-    width:50px;
-    height:50px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    left:-10px;
-    top:70px;
+    width:80%;
+    margin-left:25%;
+    transform:translateY(40%);
 }
-.thisweek_title .character_blue {
-    position: relative;
-    width:50px;
-    height:50px;
-    left:10px;
-    top:70px;
-}
+
 /* 슬라이드 영역 */
 .thisweek{
     background-color: var(--color-light-orange) ;
-    width:100%
+    width:100%;
 }
 .thisweek_line{
     padding-top:100px;
-    padding-left:100px;
+    padding-left:5%;
 }
 
 .thisweek .store1_slide img{
@@ -543,6 +515,7 @@ margin : 10px;
 .popular_keyword_ul{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .popular_keyword_li{
     margin : 20px 0 ;
@@ -553,7 +526,8 @@ margin : 10px;
     padding: 10px 20px;
 }
 /* 입점문의 */
-.import_store{
+.import_store {
+    position:relative;
     background-image: url(images/main_illust.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -562,12 +536,12 @@ margin : 10px;
 }
 
 .import_store button{
-    float:right;
-    display:relative;
-    margin:-15px 250px 0 0;
+    display:none;
     border: 1px solid var(--color-black);
     background-color: rgb(0,0,0,0);
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
+    margin-top:-14%;
+    margin-left:70%;
 }
 footer{
     background-color: var(--color-light-orange) ;
@@ -575,7 +549,7 @@ footer{
     padding-bottom: 20px;
 }
 footer .footer_line{
-    margin:0 100px;
+    margin:0 10%;
 }
 .footer_description{
     display: flex;
@@ -587,7 +561,8 @@ footer .footer_line{
     margin: 0;
 } 
 .footer_description .footer_story li{
-    padding-right:50px;
+    width:130px;
+    padding-right:3%;
 }
 .footer_description .footer_icon li{
     padding-right:30px;
@@ -612,13 +587,17 @@ footer .footer_sentence li{
     .hot_product_price{
         display:none;
     }
+    .main_event img{
+        width:100%;
+        height:20rem;
+        margin-bottom:30px;
+    }
 }
 @media screen and (max-width:1120px){
     header {
         flex-direction: column;
         align-items: center;
         background-color: var(--color-orange);
-
     }
     .header_logo{
         margin-right:140px;
@@ -656,21 +635,79 @@ footer .footer_sentence li{
     .header_toggle{
         display:block;
     }
+    .xi-bars{
+        transform:translateY(-35%);
+    }
     .header_menu ul.active,
     .header_right.active{
         display:block;
     }
-  
+    .main_event img{
+        width:100%;
+        height:18rem;
+        margin-bottom:30px;
+    }
+    .go_button{
+        display:none;
+    }
+    .main_event ul li{
+        display:none;
+    }
+    .store1_slide .slick-dots li{
+        display:none;
+    }
 }
 @media screen and (max-width:900px){
-   
-}
-@media screen and (max-width:700px){
-    .slick-dots li{
-        display:none;
-    }
     .hot_product .slick-dots li{
         display:none;
-
     }
+}
+@media screen and (max-width:700px){
+    .main_event .slick-dots li{
+        width:8px;
+        height:8px;
+    }
+    .main_event .slick-dots{
+        margin-top:30px;
+    }
+
+   
+    .hot_product img{
+        height:10rem; width:10rem;
+        margin: 0 10px;
+    }
+    
+    .thisweek .store1_slide button{
+        right:10px;
+    }
+    .thisweek_line{
+        padding-left:5px;
+    }
+    .popular_keyword_background{
+        padding:75px 20px;
+    }
+    .footer_description{
+        display:flex;
+        flex-direction:column;
+    }
+    .footer_icon{
+        flex-direction:row;
+        
+    }
+    .thisweek_title .character{
+        width:100%;
+        transform: translateX(-10%);
+    }
+    .import_store{
+        margin-bottom:0;
+        padding-bottom:20px;
+        padding-top:-10px;
+    }
+    .popular_keyword_background{
+        padding-bottom: 30px;
+    }
+
+}
+@media screen and (max-width:360px){
+    
 }
