@@ -63,6 +63,9 @@ def pay_page(request):  #결제 툴로 이동, 나중에 db에서 가격 받아�
 def store_detail(request): #임의로 만든거 나중에 수정할것 by승렬
     return render(request, 'store_detail.html')
 
-    
+
 def market(request): #임의로 만든거 나중에 수정할것 by승렬
     return render(request, 'market.html')
+
+def simulation(request): #임의로 만든거 나중에 수정할것 by승렬
+    return render(request, 'simulation.html')

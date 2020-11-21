@@ -39,4 +39,8 @@ urlpatterns = [
     path('main/market/map', main.views.market, name="store_map"),
     path('main/market/detail/<int:product_id>/', main.views.detail, name="store_detail"),
 
+    path('main/market/', main.views.market, name="store_market"),
+    path('main/simulation/', main.views.simulation, name="simulation"),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
