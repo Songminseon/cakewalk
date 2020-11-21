@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Store, Product, Simulation
+from .models import Store, Product, Simulation, Location
 from member.models import Account
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -18,12 +18,6 @@ def main(request):
 def store(request):
     return render(request, 'store.html')
     
-def store_cake(request):
-    return render(request, 'store_cake.html')
-
-def store_market(request):
-    return render(request, 'store_market.html')
-
 def detail(request):
     return render(request, 'store_detail.html')
 
@@ -71,4 +65,44 @@ def save_img(request):
     else:
         return redirect('index')
 
-    
+def store_cake(request):
+    stores = Store.objects.all()
+    products = Product.objects.all()
+    locations = Location.objects.all()
+    ascprice = Product.objects.all().order_by('product_default_price')
+    descprice = Product.objects.all().order_by('-product_default_price')
+    popular = Product.objects.all().order_by('like_num')
+    latest = Product.objects.all().order_by('product_id')
+
+    citynamelist = []
+   
+    for item in locations.all():
+        if(item.cityname not in citynamelist):
+            citynamelist.append(item.cityname)
+
+    selectedcity = "서울특별시"
+    locations = [location.city_smallcity() for location in locations]
+
+    return render(request, 'store_cake.html', {'stores':stores, 'products':products, 'locations':locations, 'citynamelist':citynamelist, 'selectedcity':selectedcity,
+    'ascprice':ascprice, 'descprice':descprice, 'popular':popular, 'latest':latest})
+
+
+def store_market(request):
+    stores = Store.objects.all()
+    products = Product.objects.all()
+    locations = Location.objects.all()
+    ascprice = Product.objects.all().order_by('product_default_price')
+    descprice = Product.objects.all().order_by('-product_default_price')
+    popular = Product.objects.all().order_by('like_num')
+    latest = Product.objects.all().order_by('product_id')
+
+    citynamelist = []
+   
+    for item in locations.all():
+        if(item.cityname not in citynamelist):
+            citynamelist.append(item.cityname)
+
+    selectedcity = "서울특별시"
+    locations = [location.city_smallcity() for location in locations]
+    return render(request, 'store_market.html', {'stores':stores, 'products':products, 'locations':locations, 'citynamelist':citynamelist, 'selectedcity':selectedcity,
+    'ascprice':ascprice, 'descprice':descprice, 'popular':popular, 'latest':latest})
