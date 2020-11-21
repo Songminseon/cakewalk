@@ -1,5 +1,7 @@
 # CakeWalk Prototype
 
+[![Watch the video](https://img.youtube.com/vi/HI_R2VVGFKU/default.jpg)](https://youtu.be/HI_R2VVGFKU)
+
 ## 사용프로그램
 ### Python
 ### Django
