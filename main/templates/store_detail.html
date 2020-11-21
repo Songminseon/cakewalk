@@ -36,7 +36,7 @@
                     </ul>
 
                 </div>
-                <img class="cake_picture" src="{{product.product_image.url}}">
+                <img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}">
                 
 
             </div>
@@ -95,7 +95,7 @@
                     <div class="able_time">19:30</div>
                 </div>
                 <button class="cart"><a href="#">장바구니</a></button>
-                <button class="simulation"><a href="#">시뮬레이션</a></button>
+                <button class="simulation"><a href="{% url 'simulation' %}">시뮬레이션</a></button>
             </div>
             <div>
                 <form action="">
@@ -134,7 +134,7 @@
 
             <div class="info_wrap">
                 <p class="product_info_font">
-                   {{product.product_description}}
+                   맛있는 보라빛 케이크
                 </p>
             </div>
             <div class="info_wrap">
@@ -268,7 +268,7 @@
                 <h2 class="customer_write_content"><a href="#">힘드네요! 졸업작품도 준비해야되고 아주 바빠요! 잠을 잘 시간이 없습니다!!</a></h2>
                 <div class="grey_line"></div>
             </div>
-            <div class="more_review"><a href="#"> 더보기</a></div>
+            <div class="more_review"><a href="{% url 'store_map' %}"> 더보기</a></div>
     </section>
     <section class="store_description">
         <div class="store_center_box_navi">
