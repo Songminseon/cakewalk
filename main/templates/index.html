@@ -79,7 +79,7 @@
                     </ul>
                 </div>
                 <div class="header_right">
-                    {% if user.is_authenticated %}
+                    {% if user.is_active %}
                     <ul class="header_right_ul">
                         <li class="header_icon"><a href="#"><i class="xi-bell-o"></i></a></li>
                         <li class="header_icon"><a href="#"><i class="xi-search"></i></a></li>
@@ -88,7 +88,7 @@
                         <div class="dropdown">
                             <button class="dropbtn">                                                  
                                 <img src="{% static 'images/logo/favicon_scale.png' %}" alt="">
-                                {{nickname}}
+                                {{user.username}}
                                 <i class="xi-caret-down"></i>
                             </button>
                             <div class="dropdown-content">

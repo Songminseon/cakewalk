@@ -10,7 +10,7 @@ def main(request):
         now_login = Account.objects.get(user=request.user)
         nickname=now_login.mem_nickname
         
-    else:
+    else:   
         nickname=""
     
     return render(request, 'index.html', {'nickname':nickname})
