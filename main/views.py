@@ -10,7 +10,7 @@ def main(request):
         now_login = Account.objects.get(user=request.user)
         nickname=now_login.mem_nickname
         
-    else:
+    else:   
         nickname=""
     
     return render(request, 'index.html', {'nickname':nickname})
@@ -24,9 +24,8 @@ def store_cake(request):
 def store_market(request):
     return render(request, 'store_market.html')
 
-def detail(request, product_id):
-    product_detail = get_object_or_404(Product, pk=product_id)
-    return render(request, 'detail.html', {'product':product_detail})
+def detail(request):
+    return render(request, 'store_detail.html')
 
 def product_like(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -55,6 +54,9 @@ def pay_page(request):  #결제 툴로 이동, 나중에 db에서 가격 받아�
 def store_detail(request): #임의로 만든거 나중에 수정할것 by승렬
     return render(request, 'store_detail.html')
 
-    
+
 def market(request): #임의로 만든거 나중에 수정할것 by승렬
     return render(request, 'market.html')
+
+def simulation(request): #임의로 만든거 나중에 수정할것 by승렬
+    return render(request, 'simulation.html')

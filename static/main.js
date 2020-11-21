@@ -13,13 +13,13 @@ $('.hot_store').slick({
     mobileFirst:true,
     responsive: [
         {
-            breakpoint:1500,
+            breakpoint:1600,
             settings: {
                 slidesToShow:5
             }
         },
         {
-            breakpoint:1300,
+            breakpoint:1400,
             settings: {
                 slidesToShow:4
             }
@@ -31,7 +31,7 @@ $('.hot_store').slick({
             }
         },
         {
-            breakpoint:720,
+            breakpoint:800,
             settings: {
                 slidesToShow:2
             }
@@ -53,12 +53,14 @@ $('.store1_slide').slick({
     responsive: [
         {
             breakpoint:1500,
+
             settings: {
                 slidesToShow:5
             }
         },
         {
             breakpoint:1300,
+
             settings: {
                 slidesToShow:4
             }
@@ -66,22 +68,29 @@ $('.store1_slide').slick({
         {
             breakpoint:1050,
             settings: {
-                slidesToShow:3
+
+                slidesToShow:3,
+                slidesToScroll:1
             }
         },
         {
             breakpoint:720,
             settings: {
-                slidesToShow:2
+
+                slidesToShow:2,
+                slidesToScroll:1
+
             }
         },
         
         {
+
             breakpoint:300,
             settings: {
                 slidesToShow:1,
                 slidesToScroll:1,
                 dots: false
+
             }
         }
     ]

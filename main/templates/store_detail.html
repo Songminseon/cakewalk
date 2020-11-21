@@ -36,7 +36,8 @@
                     </ul>
 
                 </div>
-                <img class="cake_picture" src="{% static 'images/cakes/7.JPG' %}">
+                <img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}">
+                
 
             </div>
             <div class="calendar_container">
@@ -94,7 +95,7 @@
                     <div class="able_time">19:30</div>
                 </div>
                 <button class="cart"><a href="#">장바구니</a></button>
-                <button class="simulation"><a href="#">시뮬레이션</a></button>
+                <button class="simulation"><a href="{% url 'simulation' %}">시뮬레이션</a></button>
             </div>
             <div>
                 <form action="">
@@ -115,7 +116,7 @@
                 </div>
                 <div>
                     <li class="store_cake_price">25000원</li>
-                    <li><button class="buy_button">구매하기</button></li>
+                    <li><a href="{% url 'pay_page' %}"><button class="buy_button">구매하기</button></a></li>
                 </div>
             </ul>
         </div>
@@ -133,12 +134,7 @@
 
             <div class="info_wrap">
                 <p class="product_info_font">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                   맛있는 보라빛 케이크
                 </p>
             </div>
             <div class="info_wrap">
@@ -272,7 +268,7 @@
                 <h2 class="customer_write_content"><a href="#">힘드네요! 졸업작품도 준비해야되고 아주 바빠요! 잠을 잘 시간이 없습니다!!</a></h2>
                 <div class="grey_line"></div>
             </div>
-            <div class="more_review"><a href="#"> 더보기</a></div>
+            <div class="more_review"><a href="{% url 'store_map' %}"> 더보기</a></div>
     </section>
     <section class="store_description">
         <div class="store_center_box_navi">

@@ -17,7 +17,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="{% static 'main.js' %}" defer></script>
 
-    
 
 </head>
 
@@ -73,14 +72,14 @@
                 <div class="header_menu">
                     <ul>
                         <li class="header_menu_home"><a href="{% url 'index' %}">홈</a></li>
-                        <li class="header_menu_store"><a href="{% url 'store_detail' %}">스토어</a></li>
+                        <li class="header_menu_store"><a href="{% url 'store_main' %}">스토어</a></li>
                         <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
                         <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
                         <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>
                     </ul>
                 </div>
                 <div class="header_right">
-                    {% if user.is_authenticated %}
+                    {% if user.is_active %}
                     <ul class="header_right_ul">
                         <li class="header_icon"><a href="#"><i class="xi-bell-o"></i></a></li>
                         <li class="header_icon"><a href="#"><i class="xi-search"></i></a></li>
@@ -89,7 +88,7 @@
                         <div class="dropdown">
                             <button class="dropbtn">                                                  
                                 <img src="{% static 'images/logo/favicon_scale.png' %}" alt="">
-                                {{nickname}}
+                                {{user.username}}
                                 <i class="xi-caret-down"></i>
                             </button>
                             <div class="dropdown-content">
@@ -116,17 +115,8 @@
                             <img src="{% static 'images/main_event/main_event2.png' %}" >
                             <button class="go_button">보러가기</button>
                         </div>
-                        <div><img src="{% static 'images/main_event/표지2 완성본.png' %}"></div>
-                        <div><img src="{% static 'images/main_event/cakewalk표지4.jpg' %}">
-                            <ul class="main_event_button_list">
-                                <li><a href=""><img class="app_store_button" src="{% static 'images/main_event_button/app_store_button.png' %}"> </a></li>
-                                <li><a href=""><img class="google_play_button" src="{% static 'images/main_event_button/google_play_button.png' %}"> </a></li>
-                            </ul>
-                            
-                            
-                        </div>
-                        <div><img src="{% static 'images/main_event/main_event.png' %}"></div>
-                        <div><img src="{% static 'images/main_event/main_event.png' %}"></div>
+                        <div><img src="{% static 'images/main_event/hotcake.jpg' %}"></div>
+                        <div><img src="{% static 'images/main_event/sns.jpg' %}"></div>
                 </div>
             </section>
             <section class="cakewalk_how_to_use">
@@ -142,7 +132,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>영케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>25,000</h4>
@@ -153,7 +143,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>다빈치케이크</h5>
-                                    <h4>무지개HBD 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>무지개HBD 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>38,000</h4>
@@ -164,7 +154,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>팡케이크</h5>
-                                    <h4>하트뿅뿅 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>하트뿅뿅 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4 style="padding-left: 20px;">18,000</h4>
@@ -175,7 +165,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>열케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>42,000</h4>
@@ -187,7 +177,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>일케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>63,000</h4>
@@ -199,7 +189,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>이케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>72,000</h4>
@@ -211,7 +201,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>삼케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>36,000</h4>
@@ -223,7 +213,7 @@
                             <div class="hot_product_store_description">
                                     <div class="description_store">
                                         <h5>사케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="hot_product_price">
                                         <h4>45,000</h4>
@@ -234,7 +224,7 @@
                             <div class="hot_product_store_description">
                                 <div class="description_store">
                                     <h5>오케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>15,000</h4>
@@ -244,8 +234,8 @@
                         <div><img src="{% static 'images/cakes/10.jpg' %}" alt="">
                             <div class="hot_product_store_description">
                                 <div class="description_store">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>육케이크2</h5>
+                                    <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                 </div>
                                 <div class="hot_product_price">
                                     <h4>27,000</h4>
@@ -258,11 +248,8 @@
             <section class="inter_logo">
                 <div class="thisweek_title">
                     <div class="thisweek_title_logo">
-                        <img class="character" src="{% static 'images/logo/character_legs.png' %}" alt="">
-                        <h1>이주의 Cakewalk</h1>
-                        <img class="character_blue" src="{% static 'images/logo/character_blue.png' %}" alt="">
+                        <img class="character" src="{% static 'images/thisweek_logo.png' %}" alt="">
                     </div>
-                    <h3>이번주 사랑받은 베스트 마켓들을 소개합니다</h3>
                 </div>
             </section>
             <section class="thisweek">
@@ -277,7 +264,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -294,7 +281,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -310,7 +297,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -326,7 +313,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -342,7 +329,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -358,7 +345,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -374,7 +361,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -390,7 +377,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -406,7 +393,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -422,7 +409,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -442,7 +429,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -458,7 +445,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -474,7 +461,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -490,7 +477,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -506,7 +493,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -522,7 +509,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -538,7 +525,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -554,7 +541,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -570,7 +557,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -586,7 +573,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -606,7 +593,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -622,7 +609,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -638,7 +625,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -654,7 +641,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -670,7 +657,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -686,7 +673,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -702,7 +689,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -718,7 +705,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -734,7 +721,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -750,7 +737,7 @@
                                     <br><br><br><br>
                                     <div class="image_cover_cake_info">
                                         <h5>육케이크</h5>
-                                        <h4>보랏빛하트 케이크</h4>
+                                        <a href="{% url 'store_detail' %}"><h4>보랏빛하트 케이크</h4></a>
                                     </div>
                                     <div class="image_cover_cake_price">
                                         <h4>27,000</h4>
@@ -760,8 +747,6 @@
                             <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
                             
                         </div>                                                                                              
-
-                        
                     </div>
                 </div>
 
@@ -780,7 +765,7 @@
             </div>
         </section>
         <section class="import_store">       
-            <button>입점문의 <i class="xi-long-arrow-right"></i></button>
+            <button>입점문의<i class="xi-long-arrow-right"></i></button>
         </section>
             <footer>
                 <div class="footer_line">

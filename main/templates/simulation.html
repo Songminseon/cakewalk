@@ -1,0 +1,407 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %} 
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation</title>
+    <link rel="stylesheet" href="{% static 'simulation.css' %}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="{% static 'fabric.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="{% static 'simulation.js' %}"  defer></script>
+</head>
+<body>
+    <section class="main_section">
+        <div class="wrapper">
+            <div class="wrapper_left">
+                <ul>
+                    <li data-li="initial" class="active"><i class="xi-codepen"></i><p>기본설정</p></li>
+                    <li data-li="cake_top"><i class="xi-check-circle-o"></i><p>윗면</p> </li>
+                    <!-- <li data-li="cake_side" ><i class="xi-check-square-o"></i><p>옆면</p></li> -->
+                </ul>
+            </div>
+            <div class="wrapper_right">
+                <div class="item initial" style="height:600px;" >
+                    <div class="wrapper_right_shape">
+                        <h4>케이크모양</h4>
+                        <ul>
+                            <li><button value="circle">원</button></li>
+                            <li><button value="heart" class="Btn_clicked">하트</button></li>
+                            <li><button value="square">사각형</button></li>
+                            <li><button value="rectangle">직사각형</button></li>
+                        </ul>
+                    </div>
+                    <div class="borderline"></div>
+                    <div class="wrapper_right_taste">
+                        <h4>맛</h4>
+                        <ul>
+                            <li><button>티라미슈</button></li>
+                            <li><button>녹차치즈</button></li>
+                            <li><button>쉬폰</button></li>
+                            <li><button>레드벨벳</button></li>
+                            <li><button>모카 크림치즈</button></li>
+                            <li><button>초코 버터크림</button></li>
+                            <li><button class="Btn_clicked" >크렌베리 파운드</button></li>
+                        </ul>
+                    </div>
+                    <div class="borderline"></div>
+                    <div class="wrapper_right_scale">
+                        <div>
+                            <h4>크기</h4>
+                            <h5>미니 사이즈는 도시락 케이크의 기본 사이즈입니다</h5>
+                        </div>
+                        <ul>
+                            <li>
+                            <button value="mini">
+                                <i class="xi-check"></i>
+                                <span>미니</span> 
+                            </button>
+                            </li>
+                            <li>
+                                <button value="size_1" class="Btn_scale">
+                                    <i class="xi-check"></i>
+                                    <span>1호</span> 
+                                </button>
+                            </li>
+                            <li>
+                                <button value="size_2">
+                                    <i class="xi-check"></i>
+                                    <span>2호</span> 
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="borderline"></div>
+                    <div>
+                        <h4>시트색</h4>
+                        <div class="controls__colors" id="shape_Colors">
+                            <div class="controls__color shape_Color"
+                            style="background-color:#C52C0A"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#DE7F61"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#F9D900"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#76BB14"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#21591E"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#32B2DE"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#046BB4"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#000000"></div>
+                            <div class="controls__color shape_Color"
+                            style="background-color:#FCF5EC"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item cake_top" >
+                    <div class="wrapper_right_top_text">
+                        <div>
+                            <h4>윗면 문구 기입(20자)</h4>
+                            <h5>공간상의 이유로 줄바꿈은 임의로 변경될 수 있습니다</h5>
+                        </div>
+                        <div>
+                        <input type="text" value="문구 기입을 원하지 않으면 기입하지 말아주세요." class="input_text"  onFocus="this.value=''; return true;" id="top-text-string" >
+                        <button class="btn_enter" id="top-add-text"><i class="xi-share"></i></button>
+                    </div>
+                    </div>
+                    <div class="wrapper_right_top_text_size">
+                        <div>
+                            <h4>글자크기</h4>
+                            <h5>케이크 면적을 벗어나면 문구가 짤릴수도 있습니다</h5>
+                        </div>
+                        <input type="range" class="input_top_range" id="input_top_range" value="65" min="30" max="100" step="5">
+                    </div>
+                    <div class="wrapper_right_top_text_color">
+                        <h4>글자색상</h4>
+                        <div class="controls__colors" id="jsColors">
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#FCF5EC"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#DE7F61"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#F9D900"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#76BB14"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#21591E"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#32B2DE"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#046BB4"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#000000"></div>
+                            <div class="controls__color top_text_Color"
+                            style="background-color:#FCF5EC"></div>
+                        </div>
+                    </div>
+
+                    <div class="borderline"></div>
+                    <div class="wrapper_right_base">
+                        <div>
+                            <h4>판 문구 기입(20자)</h4>
+                            <h5>공간상의 이유로 줄바꿈은 임의로 변경될 수 있습니다</h5>
+                        </div>
+                        <div>
+                        <input type="text" value="문구 기입을 원하지 않으면 기입하지 말아주세요." class="input_base_text" id="bottom-text-string" onFocus="this.value=''; return true;" >
+                        <button class="btn_enter" id="bottom-add-text"><i class="xi-share"></i></button>
+                        </div>
+                    </div>
+                    <div class="wrapper_right_base_text_size">
+                        <div>
+                            <h4>글자크기</h4>
+                            <h5>케이크 면적을 벗어나면 문구가 짤릴수도 있습니다</h5>
+                        </div>
+                        <input type="range" class="input_base_range" id="input_bottom_range" value="65" min="30" max="100" step="5">
+                    </div>
+                    <div class="wrapper_right_top_text_color">
+                        <h4>글자색상</h4>
+                        <div class="controls__colors" id="jsColors">
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#C52C0A"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#DE7F61"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#F9D900"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#76BB14"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#21591E"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#32B2DE"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#046BB4"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#000000"></div>
+                            <div class="controls__color bottom_text_Color"
+                            style="background-color:#FCF5EC"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item cake_side" style=" height:600px; display:none;" >
+                    <div class="wrapper_right_side dot_opacity" >
+                        <h4>추가장식</h4>
+                        <ul>
+                            <li><button value="none" class="Btn_clicked">없음</button></li>
+                            <li><button value="text" >옆면 문구</button></li>
+                            <li><button value="deco">옆면 데코레이션</button></li>
+                        </ul>
+                    <div class="side_text_button side_display" id="side_text">
+                        <div class="wrapper_right_side_text">
+                            <h4>옆면 문구 기입(10자)</h4>
+                            <input type="text" value="공간상의 이유로 한줄만 가능합니다" class="input_side_text" id="side-text-string" onFocus="this.value=''; return true;">
+                            <button class="btn_enter" id="side-add-text"><i class="xi-share"></i></button>
+                        </div>
+                        <div class="wrapper_right_side_text_size">
+                            <div>
+                                <h4>글자크기</h4>
+                                <h5>케이크 면적을 벗어나면 문구가 짤릴수도 있습니다</h5>
+                            </div>
+                            <input type="range" class="input_side_range" value="1250" min="1000" max="1500" step="10">
+                        </div>
+                        <div class="wrapper_right_top_text_color">
+                            <h4>글자색상</h4>
+                            <div class="controls__colors" id="jsColors">
+                                <div class="controls__color jsColor"
+                                style="background-color:#C52C0A"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#DE7F61"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#F9D900"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#76BB14"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#21591E"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#32B2DE"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#046BB4"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#000000"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#FCF5EC"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side_decoration_button side_display" id="side_deco" >
+                        <div class="side_decoration">
+                            <ul>
+                                <li>
+                                <button>
+                                    <i class="xi-check"></i>
+                                    <span>큰하트</span> 
+                                </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>작은하트</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>더블하트</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>꽃</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>음표</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>구름</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>도트</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>라인</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>랜덤 도트</span> 
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <h5>공간상의 이유로 줄바꿈은 임의로 변경될 수 있습니다</h5>
+                        <div class="borderline"></div>
+                        <div class="side_decoration_color">
+                            <h4>장식색상</h4>
+                            <div class="controls__colors" id="jsColors">
+                                <div class="controls__color jsColor"
+                                style="background-color:#C52C0A"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#DE7F61"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#F9D900"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#76BB14"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#21591E"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#32B2DE"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#046BB4"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#000000"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#FCF5EC"></div>
+                            </div>
+                        </div>
+                    </div> 
+                    </div>
+                    <div class="wrapper_right_side_edge side_display" >
+                        <div>
+                        <h4>테두리모양</h4>
+                        <h5>케이크 옆면 테두리에 둘러지는 그림입니다</h5>
+                        </div>
+                        <div class="edge_decoration_button" id="edge_deco" >
+                        <div class="edge_decoration">
+                            <ul>
+                                <li>
+                                <button>
+                                    <i class="xi-check"></i>
+                                    <span>없음</span> 
+                                </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>기본크림</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>쉘크림</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>리본크림</span> 
+                                    </button>
+                                </li>
+                                <li>
+                                    <button>
+                                        <i class="xi-check"></i>
+                                        <span>꽃크림</span> 
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="borderline"></div>
+                        <div class="side_decoration_color">
+                            <h4>테두리색상</h4>
+                            <div class="controls__colors" id="jsColors">
+                                <div class="controls__color jsColor"
+                                style="background-color:#C52C0A"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#DE7F61"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#F9D900"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#76BB14"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#21591E"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#32B2DE"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#046BB4"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#000000"></div>
+                                <div class="controls__color jsColor"
+                                style="background-color:#FCF5EC"></div>
+                            </div>
+                        </div>
+                        </div> 
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <div class="canvas_block">
+            <canvas id="canvas" ></canvas>
+            <canvas id="canvas2" class="canvas_active"></canvas>
+        </div>
+
+        <div class="btn_menu">
+            <button id="undoBtn"><i class="xi-undo"><p>이전</p></i></button>
+            <button id="removeBtn"><i class="xi-trash-o"><p>삭제</p></i></button>
+            <button id="resetBtn"><i class="xi-refresh"><p>초기화</p></i></button>
+            <button id="saveBtn"><i class="xi-save"><p>저장</p></i></button>
+            <div id="SVGRasterizer"></div>
+        </div>
+        <div class="dotBtn">
+            <button class="dot1 dot_none dot_opacity" id="dot1" value="plus_deco"></button>
+            <button class="dot2 dot_none" value="edge_deco" id="dot2"></button>
+        </div>
+    </section>
+
+
+</body>
+</html>
