@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="{% static 'store_style.css' %}">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+        <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
     </head>
     <body>
@@ -31,7 +33,7 @@
             <div class="header_menu">
                 <ul>
                     <li class="header_menu_home"><a href="{% url 'index' %}">홈</a></li>
-                    <li class="header_menu_store"><a href="{% url 'store_detail' %}">스토어</a></li>
+                    <li class="header_menu_store"><a href="{% url 'store_main' %}">스토어</a></li>
                     <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
                     <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
                     <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>
@@ -63,12 +65,10 @@
             </div>
             
         </header>
-
-
         <section class = "header_below">
             <div class = "header_below_container">
                 <ul class="filter_ul">
-                    <li><h3 id="filter_title_font">가까이에 있는 예쁜 케이크를 찾아보세요!    </h3></li>
+                    <li><h3 id="filter_title_font">가까이에 있는 예쁜 케이크를 찾아보세요! </h3></li>
                     
                     <li>
                         <div class="dropdown">
@@ -147,830 +147,120 @@
 
         <div class="grey_area">
             <div id="market_area" class="market_info">
+               
                 
-                <h3>아이라이크케이크</h3>
+                <h3>종훈이네 핸드메이드 케이크</h3>
                 <div data-slick='{"slidesToShow": 5, "slidesToScroll": 5}' class='store1_slide'>
+                    {% for i in product1.all %}
                     <div>
+                        <a href="{% url 'store_detail' i.product_id %}">ㅁㅁ</a>
                         <div class="store1_slide_image_cover"> 
                             <div id="cake_info">
                                 <br><br><br><br>
                                 <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>{{i.str_id}}</h5>
+                                    <h4>{{i.product_description}}</h4>
+                                    
                                 </div>
                                 <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
+                                    <h4>{{i.product_default_price}}</h4>
                                 </div>
                             </div>
                         </div>
-
-                        <div><img src="{% static 'images/cakes/1.PNG' %}" alt=""></div>
+                        
+                        <div><img src="{{i.product_image.url}}" alt=""></div>
+                        
                         
                     </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>  
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
-                        
-                    </div>
-
+                    {% endfor %}
                 </div>
-                <h3>달보살롱</h3>
+                <h3>소영이네 가게</h3>
                 <div data-slick='{"slidesToShow": 5, "slidesToScroll": 5}' class='store1_slide'>
+                    {% for i in product2.all %}
                     <div>
                         <div class="store1_slide_image_cover"> 
                             <div id="cake_info">
                                 <br><br><br><br>
                                 <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>{{i.str_id}}</h5>
+                                    <h4>{{i.product_description}}</h4>
                                 </div>
                                 <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
+                                    <h4>{{i.product_default_price}}</h4>
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
-                        
+                        <div><img src="{{i.product_image.url}}" alt=""></div>                       
                     </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
-                    </div>                        
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/1.PNG' %}" alt=""></div>
-                        
-                    </div>                        
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        
-                    </div>                        
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt=""></div>
-                        
-                    </div>  
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
-                        
-                    </div>                      
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>                        
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-
+                    {% endfor %}       
                 </div>
-                <h3>까까 상점</h3>
+
+                <h3>승렬이네 가게</h3>
                 <div data-slick='{"slidesToShow": 5, "slidesToScroll": 5}' class='store1_slide'>
+                    {% for i in product3.all %}
                     <div>
                         <div class="store1_slide_image_cover"> 
                             <div id="cake_info">
                                 <br><br><br><br>
                                 <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>{{i.str_id}}</h5>
+                                    <h4>{{i.product_description}}</h4>
                                 </div>
                                 <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
+                                    <h4>{{i.product_default_price}}</h4>
                                 </div>
                             </div>
                         </div>
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
+                        <div><img src="{{i.product_image.url}}" alt=""></div>
                     </div> 
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
-                    </div> 
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/11.jpg' %}" alt=""></div>
-                        
-                    </div> 
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
-                        
-                    </div>                                                                                              
+                    {% endfor %}
+                </div>
 
-                    
-                </div>
-                <h3>마들케이크</h3>
+                <h3>민정이네 가게</h3>
                 <div data-slick='{"slidesToShow": 5, "slidesToScroll": 5}' class='store1_slide'>
+                    {% for i in product4.all %}
                     <div>
                         <div class="store1_slide_image_cover"> 
                             <div id="cake_info">
                                 <br><br><br><br>
                                 <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>{{i.str_id}}</h5>
+                                    <h4>{{i.product_description}}
+                                    </h4>
                                 </div>
                                 <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
+                                    <h4>{{i.product_default_price}}</h4>
                                 </div>
                             </div>
                         </div>
     
-                        <div><img src="{% static 'images/cakes/1.PNG' %}" alt=""></div>
-                        
+                        <div><img src="{{i.product_image.url}" alt=""></div>
                     </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>  
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
-                        
-                    </div>
-    
+                    {% endfor %}
                 </div>
-                <h3>샛별제과</h3>
+
+                <h3>민선이네 가게</h3>
                 <div data-slick='{"slidesToShow": 5, "slidesToScroll": 5}' class='store1_slide'>
+                    {% for i in product5.all %}
                     <div>
                         <div class="store1_slide_image_cover"> 
                             <div id="cake_info">
                                 <br><br><br><br>
                                 <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
+                                    <h5>{{i.str_id}}</h5>
+                                    {{i.product_image.url}}
+                                    <h4>{{i.product_description}}</h4>
                                 </div>
                                 <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
+                                    <h4>{{i.product_default_price}}</h4>
                                 </div>
                             </div>
                         </div>
     
-                        <div><img src="{% static 'images/cakes/1.PNG' %}" alt=""></div>
+                        <div><img src="{{i.product_image.url}" alt=""></div>
                         
                     </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>  
-                        <div><img src="{% static 'images/cakes/2.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/3.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/4.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/5.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/6.PNG' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/7.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/8.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/9.jpg' %}" alt=""></div>
-                        
-                    </div>
-                    <div>
-                        <div class="store1_slide_image_cover"> 
-                            <div id="cake_info">
-                                <br><br><br><br>
-                                <div class="image_cover_cake_info">
-                                    <h5>육케이크</h5>
-                                    <h4>보랏빛하트 케이크</h4>
-                                </div>
-                                <div class="image_cover_cake_price">
-                                    <h4>27,000</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="{% static 'images/cakes/10.jpg' %}" alt=""></div>
-                        
-                    </div>
-    
+                    {% endfor %}
                 </div>
                 
                 
@@ -1019,5 +309,34 @@
             </div>
         </footer>
     </body>
+    <script>
+        var IMP = window.IMP;
+        IMP.init('iamport')
+        IMP.request_pay({
+        pg : 'inicis', // version 1.1.0부터 지원.
+        pay_method : 'card',
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : '케이크워크테스트',
+        amount : 100,
+        buyer_email : 'smsun0329@naver.com',
+        buyer_name : '송민선',
+        buyer_tel : '010-5029-2283',
+        buyer_addr : '서울특별시 노원구 묵동',
+        buyer_postcode : '123-456',
+        m_redirect_url : 'https://www.yourdomain.com/payments/complete'
+         }, function(rsp) {
+        if ( rsp.success ) {
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid;
+            msg += '상점 거래ID : ' + rsp.merchant_uid;
+            msg += '결제 금액 : ' + rsp.paid_amount;
+            msg += '카드 승인번호 : ' + rsp.apply_num;
+        } else {
+            var msg = '결제에 실패하였습니다.';
+            msg += '에러내용 : ' + rsp.error_msg;
+        }
+        alert(msg);
+          });
+        </script>
 
 </html>
