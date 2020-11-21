@@ -472,13 +472,16 @@ function undo(){
     canvas.renderAll();
 }
 }
+
 const saveCanvas = document.getElementById("saveBtn")
 saveCanvas.addEventListener("click",function(){
     var image_top = canvas.toDataURL();
     var image_side = canvas2.toDataURL();
-    var imageSVG = canvas.toSVG();
-    console.log(image_top);
-    console.log(image_side);
+    var top = document.getElementById('img_top');
+    var slide = document.getElementById('img_slide');
+    console.log(image_top)
+    top.setAttribute('value', image_top);
+    slide.setAttribute('value', image_slide);
 
 });
 
