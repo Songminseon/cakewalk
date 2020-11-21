@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
 :root {
    /* Cake Walk */
    --color-orange:#ea5743;
@@ -45,7 +47,12 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
     margin:0;
 }
-*:focus { outline:none; }
+*:focus { 
+    outline:none; 
+}
+*{
+    /* font-family: 'Nanum Gothic', sans-serif; */
+}
 ul{
     padding-left: 0;
 }
@@ -79,7 +86,7 @@ button{
     z-index: 10;
 }
 .hidden{
-    display:none
+    display:none;
 }
 .modal_overlay{
     background-color: rgba(0,0,0,0.6);
@@ -149,7 +156,6 @@ button{
 .signIn_input .signUp_layout{
     display:flex;
     justify-content: center;
-    font-size : 9px;
 }
 .signIn_input h4{
     color:var(--color-dark-white);

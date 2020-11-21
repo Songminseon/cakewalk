@@ -37,7 +37,6 @@ urlpatterns = [
     path('main/store_market/', main.views.store_market, name="store_main"),  ##스토어 누르면 나오는곳
     path('main/market/map', main.views.market, name="store_map"),
     path('main/market/detail/', main.views.detail, name="store_detail"),
-
     path('main/market/', main.views.market, name="store_market"),
     path('main/simulation/', main.views.simulation, name="simulation"),
 

@@ -479,7 +479,6 @@ saveCanvas.addEventListener("click",function(){
     var imageSVG = canvas.toSVG();
     console.log(image_top);
     console.log(image_side);
-
 });
 
 

@@ -84,7 +84,7 @@ button{
     z-index: 10;
 }
 .hidden{
-    display:none
+    display:none;
 }
 .modal_overlay{
     background-color: rgba(0,0,0,0.6);
@@ -103,10 +103,9 @@ button{
     z-index:20;
     top:150px;
 }
-.signInup{
+form{
     display:flex;
     flex-direction: column;
-    width:100%;
 }
 .signInup .logo_design{
     display:flex;
@@ -115,14 +114,13 @@ button{
     flex-direction: column;
 }
 .signInup .btn_exit{
-    /* position: absolute; */
     align-self:flex-end;
     border:none;
     background-color: var(--color-white);
     color:var(--color-orange);
-    margin-left: 30px;
+    margin-right: 10px;
     font-size: var(--font-regular);
-    /* top:5%; */
+    cursor : pointer;
 }
 .signInup .logo_icon{
     width:160px;
@@ -160,10 +158,17 @@ button{
 .signIn_input .signUp_layout{
     display:flex;
     justify-content: center;
+    font-size : 9px;
 }
 .signIn_input h4{
     color:var(--color-dark-white);
     padding-top:20px;
+    font-size : 9px;
+
+}
+input::placeholder{
+    color : A3A3A3;
+    font-size : 9px;
 }
 .social_login img{
     width:32px;
@@ -208,6 +213,14 @@ header .header_menu a:hover{
 }
 .header_right li i{
     padding:5px;
+}
+.header_toggle{
+    display:none;
+    position: absolute;
+    color:white;
+    font-size:24px;
+    top:28px;
+    right:32px;
 }
 
 .store_big_box{
@@ -739,3 +752,52 @@ footer .footer_address ul li{
 footer .footer_sentence li{
     padding-bottom:10px;
 }
+@media screen and (max-width:1120px){
+    header {
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-orange);
+    }
+    .header_logo{
+        margin-right:140px;
+    }
+    .header_menu ul {
+        display:none;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 80px;
+        margin-bottom: -10px;
+        text-align: center;
+    }
+    .header_menu ul li{
+        margin-bottom:10px;
+    }
+    .header_menu ul li a{
+        color:white;
+    }
+    .header_menu ul li a:hover{
+        color:var(--color-white);
+    }
+    .header_right{
+        display:none;
+        color:white;
+
+        margin-left:15px;
+    }
+    .header_right ul li{
+        color:white;
+    }
+    .header_right ul li a{
+        color:white;
+
+    }
+    .header_toggle{
+        display:block;
+    }
+    .xi-bars{
+        transform:translateY(-35%);
+    }
+    .header_menu ul.active,
+    .header_right.active{
+        display:block;
+    }

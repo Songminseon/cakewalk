@@ -14,6 +14,15 @@ overlay.addEventListener("click", closeModal);
 closeBtn.addEventListener("click", closeModal);
 openLogin.addEventListener("click",openModal);
 
+const toggleBtn = document.querySelector('.header_toggle');
+const menu = document.querySelector('.header_menu ul');
+const icons = document.querySelector('.header_right');
+
+toggleBtn.addEventListener('click', ()=> {
+    menu.classList.toggle('active');
+    icons.classList.toggle('active');
+});
+
 const date = new Date();
 
 const renderCalendar = () => {
