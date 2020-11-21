@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Store, Product
+from .models import Store, Product, Simulation
 from member.models import Account
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -60,3 +60,15 @@ def market(request): #임의로 만든거 나중에 수정할것 by승렬
 
 def simulation(request): #임의로 만든거 나중에 수정할것 by승렬
     return render(request, 'simulation.html')
+
+def save_img(request):
+    if request.method=='POST':
+        info = request.POST['img_top']
+        info2 = request.POST['img_slide']
+        simulation = Simulation(simulation_top=info, simulation_slide=info2)
+        simulation.save()
+        return redirect('index')
+    else:
+        return redirect('index')
+
+    
