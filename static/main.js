@@ -49,6 +49,42 @@ $('.hot_store').slick({
 
 $('.store1_slide').slick({
     dots: true,
+    mobileFirst:true,
+    responsive: [
+        {
+            breakpoint:1500,
+            settings: {
+                slidesToShow:5
+            }
+        },
+        {
+            breakpoint:1300,
+            settings: {
+                slidesToShow:4
+            }
+        },
+        {
+            breakpoint:1050,
+            settings: {
+                slidesToShow:3
+            }
+        },
+        {
+            breakpoint:720,
+            settings: {
+                slidesToShow:2
+            }
+        },
+        
+        {
+            breakpoint:300,
+            settings: {
+                slidesToShow:1,
+                slidesToScroll:1,
+                dots: false
+            }
+        }
+    ]
 });
 
 const openLogin = document.getElementById("open_login");
