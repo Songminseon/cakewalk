@@ -1,5 +1,3 @@
-{% extends 'base.html' %}
-
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
@@ -15,13 +13,73 @@
     <link rel="stylesheet" href="{% static 'slick.css' %}">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="{% static 'slick.min.js' %}" ></script>
     <script src="{% static 'store_detail_js.js' %}" defer></script>
+
 </head>
 
 <body>
-    {% block content %}
+    <div class="modal hidden">
+        <div class="modal_overlay"></div>
+        <div class="modal_content">
+            <form method="POST" action="{% url 'login' %}" class=form_login>
+                <div class="signInup">
+                    <ul class="logo_design">
+                        <li class="btn_exit exit_icon"><i class="xi-close"></i></li>
+                        <li ><img src="{% static 'images/logo/login_logo.png' %}" alt="" class="logo_icon"></li>
+                        <li><div class="borderline"></div></li>
+                    </ul>
+                </div>
+                <div class="signIn_input">
+                    <ul class="signIn_layout">
+                        <li> <input type="text" class="login_id" placeholder=" 아이디를 입력해주세요" name="user_id"> </li>
+                        <li><input type="password" class="login_password" placeholder=" 비밀번호를 입력해주세요" name="password">  </li>
+                        <div style="margin: 0 0 0 30px; color:red; " class="messages">
+                        </div>  
+                        <li> <button type="submit" class="btn_login">로그인</button>  </li>
+                    </ul>                 
+                    <ul class="signUp_layout">
+                        <li><a href="{% url 'signup_page' %}">회원가입</a></li>
+                        <li><i class="xi-minus-thin xi-rotate-90"></i></li>
+                        <li><a href="#" onclick="not_develop()">아이디 찾기</a></li>
+                        <li><i class="xi-minus-thin xi-rotate-90"></i></li>
+                        <li><a href="#" onclick="not_develop()">비밀번호 찾기</a></li>
+                    </ul>
+                    <h4>다른방법으로 로그인하기</h4>
+                </div>
+            </form>
+            <div class="social_login">
+                <a href="{% provider_login_url 'google' %}"><img src="{% static 'images/logo/google_login.png' %}" alt=""></a>
+                <a href="{% provider_login_url 'kakao' %}"><img src="{% static 'images/logo/kakao_login.png' %}" alt=""></a>
+                <a href="{% provider_login_url 'naver' %}"><img src="{% static 'images/logo/naver_login.png' %}" alt=""></a>
+                <a href="{% provider_login_url 'facebook' %}"><img src="{% static 'images/logo/facebook_login.png' %}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="header_logo">
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo/logotype.png' %}" alt=""></a>
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo/whitelogo.png' %}" alt=""></a>
+        </div>
+        <div class="header_menu">
+            <ul>
+                <li class="header_menu_home"><a href="{% url 'index' %}">홈</a></li>
+                <li class="header_menu_store"><a href="{% url 'store_main' %}">스토어</a></li>
+                <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
+                <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
+                <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>
+            </ul>
+        </div>
+        <div class="header_right">
+            <ul class="header_right_ul2">
+                <li class="header_right_search"><a href="#" onclick="not_develop()"><i class="xi-search"></i>검색</a></li>
+                <li class="header_right_like"><a href="#" onclick="not_develop()"><i class="xi-heart-o"></i>찜</a></li>
+                <li id= "open_login" class="header_right_login">로그인</li>
+            </ul>
+        </div>
+        <a href="#" class="header_toggle"><i class="xi-bars"></i></a>
+    </header>
     <section class="store_big_box">
         <div class="store_center_box">
             <div class="cake_reservation1">
@@ -37,8 +95,6 @@
 
                 </div>
                 <img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}">
-                
-
             </div>
             <div class="calendar_container">
                 <div class="calendar">
@@ -138,53 +194,12 @@
                 </p>
             </div>
             <div class="info_wrap">
-                ❤️레터링마카롱케이크의 🌟원조🌟맘대롱❤️<br>
-                <p>
-                💡주문전 꼭 읽어주세용💡
-                </p>
-                ✔️주소변경시 취소후 재주문해주세요! <br>                    
-                ✔️2인용 사이즈입니다✌️             <br>                    
-                ✔️한글 15글자까지만 제작가능        <br>
-                영어는 기본:필기체                      
-                전부대문자기재시 필기체가 어려울수있습니다
-                고딕체원하시면 꼭 요청해주세요❗️      <br>
-                ✔️레터링색상: 빨/주/노/초/파/하/남/보/민트/흰/핑    <br>
-                ✔️택배수령일 : 화,수,목,금,토   <br>
-                ✔️도착시간 문의 및 요청은 어렵습니다!   <br>
-                    (지역,기사님마다 다르답니다)
-                    -수령일하루전출고-<br>
-                ✔️레터링    <br>
-                1단: 한번만 쓴 깔끔한 레터링
-                2단:두겹으로 올려 쓴 볼륨감있는레터링     <br>           
-                ✔️묶음배송  <br>
-                2개이상구매시 같은날만 묶음배송가능합니다!
-                (장바구니에 담으시고 주문주시면되셔요)<br>
-                ✔️배송중 파손에 의한    <br>
-                교환 및 환불이 불가능한 상품입니다
-                아이스박스+아이스팩+보냉백+뽁뽁이로
-                꼼꼼하게 포장해드려요❤️<br>
-                ✔️가상계좌주문시    <br>
-                시간이 지나고 결제하셨다면 간혹 발송리스트에서
-                누락이생길수있으니 꼭꼭 연락부탁드립니다!<br>
-                ✔️사이즈    <br>
-                약 16*14포장박스에 들어가는 사이즈입니다!
-                (햄버거박스에 들어가는사이즈보다 훨씬 큽니다)<br>
-                ✔️“사이즈업”은 중량2배로 체크하며 제작되며  
-                전체적으로 (상하좌우) 2-3센티씩 커집니다!<br>
-                *참고*
-                기본사이즈 : 미니케이크
-                사이즈업 : 1호케이크<br>
-                ✔️픽업 장소&시간<br>
-                서울동대문구 고산자로36길 3 경동시장
-                신관3층 청년몰
-                (🔍경동시장노브랜드 3층)<br>
-                11/17일주문이후 픽업장소변경됩니다
-                서울시 은평구 갈현동 406-1 2층<br>
-                👉13:00-20:00👈<br><br>
-                ❄️보관방법❄️<br>
-                수령후 바로 냉동보관
-                2주내에 섭취<br>
-                ✔️취소는 4일전까지만 가능합니다!
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum.
             </div>
         </div>
     </section>
@@ -406,8 +421,6 @@
             </div>
         </div>
     </footer>
-    {% endblock %}
 
 </body>
-
 </html>
