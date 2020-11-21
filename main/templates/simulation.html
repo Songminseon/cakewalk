@@ -389,19 +389,26 @@
             <canvas id="canvas2" class="canvas_active"></canvas>
         </div>
 
+    <form action="{% url 'save_img' %}" method="POST">
         <div class="btn_menu">
-            <button id="undoBtn"><i class="xi-undo"><p>이전</p></i></button>
-            <button id="removeBtn"><i class="xi-trash-o"><p>삭제</p></i></button>
-            <button id="resetBtn"><i class="xi-refresh"><p>초기화</p></i></button>
-            <button id="saveBtn"><i class="xi-save"><p>저장</p></i></button>
-            <div id="SVGRasterizer"></div>
+            {% csrf_token %}
+                <button id="undoBtn"><i class="xi-undo"><p>이전</p></i></button>
+                <button id="removeBtn"><i class="xi-trash-o"><p>삭제</p></i></button>
+                <button id="resetBtn"><i class="xi-refresh"><p>초기화</p></i></button>
+                <button id="saveBtn" type="submit"><i class="xi-save"><p>저장</p></i></button>
+                <input type="hidden" name="img_top" id="img_top">
+                <input type="hidden" name="img_slide" id="img_slide">
+                <div id="SVGRasterizer"></div>
         </div>
+    </form>
         <div class="dotBtn">
             <button class="dot1 dot_none dot_opacity" id="dot1" value="plus_deco"></button>
             <button class="dot2 dot_none" value="edge_deco" id="dot2"></button>
         </div>
     </section>
-
-
 </body>
+<script>
+    
+    
+</script>
 </html>

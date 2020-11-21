@@ -40,6 +40,6 @@ urlpatterns = [
 
     path('main/market/', main.views.market, name="store_market"),
     path('main/simulation/', main.views.simulation, name="simulation"),
-
+    path('main/simulation/save/img/', main.views.save_img, name="save_img"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

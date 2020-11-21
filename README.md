@@ -1,5 +1,8 @@
 # CakeWalk Prototype
 
+[![Watch the video](https://img.youtube.com/vi/HI_R2VVGFKU/default.jpg)](https://youtu.be/HI_R2VVGFKU)
+##### 이미지를 클릭하면 유튜브로 연결됩니다.
+
 ## 사용프로그램
 ### Python
 ### Django

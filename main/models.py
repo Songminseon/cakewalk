@@ -91,3 +91,7 @@ class Location(models.Model):
 
     def __str__(self):
         return self.cityname + " " + self.smallcityname
+
+class Simulation(models.Model):
+    simulation_top = models.ImageField(upload_to = 'images/')
+    simulation_slide = models.ImageField(upload_to = 'images/')

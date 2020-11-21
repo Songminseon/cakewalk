@@ -1,10 +1,32 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <style>
+        html{
+            width:100%;
+            height:100%;
+            background-color:#fe918d;
+        }
+        a{
+            text-decoration: none;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        img{
+            display: block;
+            margin:0 auto;
+            padding-top:40px;
+            width:300px;
+            height: 100px;
+        }
+    </style>
     <!-- 함수지정해서 값받아서 넘겨주기 -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <title>결제툴</title>
+    <title>결제</title>
     <script>
     var IMP = window.IMP;
     IMP.init('iamport')
@@ -37,9 +59,13 @@
 
 </head>
 <body>
-
-    <h1>결제툴</h1>
-    <a href="{% url 'index' %}" style="font-size:50px;">메인으로 돌아가기</a>
+    <div>
+        <a href="{% url 'index' %}">
+            <img src="{% static 'images/logo/whitelogo.png' %}" alt="">
+        </a>
+    </div>
+    
+    
 
 </body>
 </html>

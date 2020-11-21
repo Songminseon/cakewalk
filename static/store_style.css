@@ -46,6 +46,7 @@
     body{
         font-family: 'Noto Sans KR', sans-serif;
         margin:0;
+        
     }
     *:focus { outline:none; }
 
@@ -96,6 +97,7 @@
         justify-content: space-around;
         padding-top: 10px;
         background-color :var(--color-orange);
+        min-width: 520px;
     }
     header .header_logo img{
         width:132px;
@@ -206,9 +208,9 @@
     .header_below{
         display:flex;
         justify-content: space-around;
-        padding-top: 10px;
+        padding: 100px 0px 20px;
         background-color :var(--color-orange);
-        height : 200px;
+        height : auto;
     }
     
     .header_below_container{
@@ -222,9 +224,9 @@
     .filter_ul{
         position : relative;
         display :flex;
+        flex-wrap : wrap;
         justify-content: space-between;
         margin : 0;
-        margin-top : 110px;
         flex : 1 1;
     }
     .filter_ul li{
@@ -234,11 +236,11 @@
         position : relative;
     }
     
-    .filter_ul #filter_title_font {
+    #filter_title_font {
         margin-top : 5px;
         color : var(--color-white);
-        margin-right : 48px;
-        font-size : 32px;
+        margin-right : 48px; 
+        font-size : 30px;
     }
     
     .main_menu{
@@ -378,7 +380,7 @@
         flex-wrap: wrap;
         justify-content: center;
         height : auto;
-    
+        
     }
     
     .grey_area{
@@ -430,35 +432,25 @@
     #market_area{
         width : 100%;
     }
-    .map_area{
-        box-sizing: border-box;
-        width : 100%;
-        height : 400px;
-        background-color : var(--color-pink);
-        display : flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom : 40px 
-    }
+
     
     .grey_box{
         width : 100%;
-        height : 60px;
+        height : auto;
         border : solid 1px var(--color-dark-white);
         border-radius : 5px;
         background-color : var(--color-medium-white);
         color : var(--color-black);
         flex-wrap: wrap;
         justify-content: center;
-        padding : 14px 40px;
         margin-bottom : 50px;
-        padding : 15px 60px;
+        padding : 0px 40px;
     }
     
     .grey_box .grey_box_ul{
-        position : relative;
-        flex: 1 1;
+        /* position : relative; */
         display : flex;
+        flex-wrap : wrap;
         justify-content : space-between;
         margin : 0;
     
@@ -473,12 +465,29 @@
     .grey_box_button a{
         font-size : 18px;
         width : auto;
-        padding : 0px 50px 0px 50px;
+        padding : 0px 30px 0px 30px;
+        text-decoration : none;
+        color : black;
+    }
+    .grey_box_set_button a{
+        color : var(--color-orange);
+    }
+
+    .grey_box_button a:active{
+        text-decoration : none;
+
+    }
+    .grey_box_button a:hover{
         text-decoration : none;
     }
     
     .sub-menu-1{
         display : none;
+    }
+    .grey_box_ul li{
+        display :flex;
+        justify-content: flex-start;
+        margin : 7px 0;
     }
     .grey_box_ul li:hover .sub-menu-1{
         display : block ;
@@ -486,6 +495,7 @@
         background-color : var(--color-white);
         color : var(--color-grey);
         margin-left : 20px;
+        margin-top : 30px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         border-radius : 8px;
         padding : 8px;
@@ -549,7 +559,7 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         border-radius : 8px;
         padding : 8px;
-        
+        margin-top : 30px;
     }
     .sub-menu-2-detail-font{
         text-align : center;
@@ -676,10 +686,124 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         border-radius : 8px;
         padding : 8px;
+        width : 400px;
+        margin-top : 30px;
     }
     .sub-menu-3 .calendar_contatainer{
         margin : 10px;
         height : auto;
+    }
+    
+    
+    .calendar{
+        width:auto;
+        height:auto;
+        background-color: white;
+        z-index : 0;
+    }
+    
+    .month{
+        width:100%;
+        height:6rem;
+        background-color: white;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:0 2rem;
+        text-align: center;
+        color: var(--color-black);
+    }
+    
+    .month i{
+        font-size:15px;
+        cursor: pointer;
+    }
+    
+    .weekdays{
+        width:100%;
+        height:5rem;
+        padding: 0 0.4rem;
+        display:flex;
+        align-items: center;
+    }
+    .weekdays div{
+        font-size:1.5rem;
+        font-weight: bolder;
+        letter-spacing: 0.1rem;
+        width: calc(39.2rem / 7);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .days{
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        padding:0.2rem;
+    }
+    
+    .days div{
+        font-size:1.4rem;
+        margin:0.3rem;
+        width:calc(35.2rem /7);
+        height:5rem;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .days .days_container{
+        width:80%;
+        height:80%;
+    }
+    .days .days_container:hover:not(.select){
+        background-color: white;
+        border: 0.2rem solid orangered;
+        border-radius: 50%;
+        cursor:pointer;
+    }
+    
+    .prev-date,
+    .next-date{
+        opacity:0.5;
+    }
+    
+    .select{
+        background-color: orangered;
+        border-radius: 60%;
+        color:white;
+        transition: background 0.4s;
+    }
+    .today_marker{
+        flex:none;
+        position: absolute;
+        margin-top:4rem;
+        font-size: 1rem;
+    }
+    .grey_date{
+        opacity: 0.5;
+        pointer-events:none;
+    }
+    .able-unable,.able,.unable{
+        display:flex;
+        justify-content: flex-end;
+        padding-top:5px;
+    }
+    .unable{
+        padding-right:20px;
+    }
+    .redpoint{
+        width:16px;
+        height:16px;
+        background-color: var(--color-orange);
+        border-radius: 50%;
+    }
+    .greypoint{
+        width:16px;
+        height:16px;
+        background-color: var(--color-light-grey);
+        border-radius: 50%;
+        margin-left:10px;
     }
     
     
@@ -696,6 +820,7 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         border-radius : 8px;
         padding : 8px;
+        margin-top : 30px;
     }
     
     
@@ -761,6 +886,75 @@
         padding : 0px;
     }
     
+
+    @media screen and (min-width:480px) and (max-width:600px){
+        .grey_box .grey_box_ul{
+            position : relative;
+            display : flex;
+            flex-wrap : wrap;
+            flex-direction: column;
+            justify-content : center;
+            margin : 0;
+            
+        }
+        .grey_box_normal_font{
+            margin : auto;
+        }
+        .grey_box_ul a{
+            margin : auto;
+        }
+        .grey_box_set_button{
+            margin : auto;
+        }
+        .bold_font_button{
+            font-size : 22px;
+        }
+        .cake_market_button{
+            padding : 10px 10px;
+            cursor : pointer;
+            background : var(--color-transparent);
+            border : 1px solid var(--color-transparent);
+            position : relative;
+        }
+        .grey_box_ul li:hover .sub-menu-1{
+            
+            margin-left : 50px;
+            
+        }
+        
+    }
+    @media screen and (max-width:800px){
+        .grey_box .grey_box_ul{
+            position : relative;
+            display : flex;
+            flex-wrap : wrap;
+            justify-content : center;
+            margin : 10px;
+            
+        }
+
+    }
+    @media screen and (min-width:800px) and (max-width:1020px){
+        .grey_box .grey_box_ul{
+            position : relative; 
+            display : flex;
+            flex-wrap : wrap;
+            justify-content : center;
+            margin : 10px;
+        }
+    }
+    @media screen and (min-width:1035px){
+        .grey_box .grey_box_ul{
+            position : relative;
+            display : flex;
+            flex-wrap : wrap;
+            margin : 10px;
+        }
+        
+    }
+
+
+
     .cake_array_box{
         display: grid;
         grid-gap: 0.5rem;
@@ -795,7 +989,8 @@
         position: relative;
         margin: 0;
         top:27px;
-        left:45px
+        left:45px;
+        z-index : -1;
     }
     
     .market_info{
@@ -834,8 +1029,8 @@
     }
     .image_cover_cake_price{
         position: relative;
-        top:195px;
-        left:45px;
+        top:190px;
+        left:20px;
         float : right;
     }
     
@@ -843,6 +1038,7 @@
         position: relative;
         padding-top: 20px;
         padding-bottom: 80px;
+        
     }
     .market_info .store1_slide button {
         position: absolute; z-index: 2; top:40%; transform: translateY(-50%);
@@ -899,6 +1095,7 @@
         display: flex;
         margin: 0;
     } 
+    
     .footer_description .footer_story li{
         padding-right:50px;
     }
