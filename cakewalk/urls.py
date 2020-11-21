@@ -26,7 +26,6 @@ urlpatterns = [
     path('', main.views.main, name="index"),
     path('main/store/', main.views.main, name="store"),
     path('member/signup_page/', member.views.signup_page, name="signup_page"),
-    path('main/<int:product_id>/', main.views.detail, name='detail'),
     path('like/<int:product_id>', main.views.product_like, name='like'),
     path('member/login/', member.views.login , name='login'),
     path('member/logout/', member.views.logout , name='logout'),    
@@ -34,9 +33,10 @@ urlpatterns = [
     path('member/accounts/', include('allauth.urls')),
     path('member/activate/<str:uid64>/<str:token>/', member.views.activate , name='activate'), 
     path('main/pay', main.views.pay_page, name="pay_page"),
-    path('main/product_order', main.views.store_detail, name="store_detail"),
+    # path('main/product_order', main.views.store_detail, name="store_detail"),
     path('main/store_cake/', main.views.store_cake, name="store_cake"),
-    path('main/store_market/', main.views.store_market, name="store_market"),
-    path('main/market/', main.views.market, name="store_market"),
+    path('main/store_market/', main.views.store_market, name="store_main"),  ##스토어 누르면 나오는곳
+    path('main/market/map', main.views.market, name="store_map"),
+    path('main/market/detail/<int:product_id>/', main.views.detail, name="store_detail"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

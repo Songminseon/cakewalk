@@ -22,11 +22,19 @@ def store_cake(request):
     return render(request, 'store_cake.html')
 
 def store_market(request):
-    return render(request, 'store_market.html')
+    product1 = Product.objects.filter(str_id=1)
+    product2 = Product.objects.filter(str_id=2)
+    product3 = Product.objects.filter(str_id=3)
+    product4 = Product.objects.filter(str_id=4)
+    product5 = Product.objects.filter(str_id=5)
+    context = {
+        'product1':product1, 'product2':product2, 'product3':product3, 'product4':product4, 'product5':product5
+    }
+    return render(request, 'store_market.html', context)
 
 def detail(request, product_id):
     product_detail = get_object_or_404(Product, pk=product_id)
-    return render(request, 'detail.html', {'product':product_detail})
+    return render(request, 'store_detail.html', {'product':product_detail})
 
 def product_like(request, product_id):
     product = get_object_or_404(Product, id=product_id)
