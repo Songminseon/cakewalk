@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
 :root {
    /* Cake Walk */
    --color-orange:#ea5743;
@@ -45,6 +47,11 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
     margin:0;
 }
+
+*{
+    font-family: 'Poor Story', cursive;
+}
+
 *:focus { outline:none; }
 ul{
     padding-left: 0;
@@ -64,6 +71,11 @@ h3,h4,h5{
 button{
     cursor:pointer;
 }
+
+.image_cover_cake_info a{
+    color:white;
+}
+
 .slick-slide{
     height:0%;
 }
@@ -315,11 +327,7 @@ header .header_logo img{
 
 .main_event img{
     width:100%;
-<<<<<<< HEAD
-    height:640px;
-=======
     height:38rem;
->>>>>>> e9a796ed17177e58ebd7f7aa39194db47094b9d9
 }
 
 .main_event .main_event_button_list{
