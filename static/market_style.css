@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
 :root {
     /* Cake Walk */
     --color-orange:#ea5743;
@@ -45,6 +47,11 @@
         font-family: 'Noto Sans KR', sans-serif;
         margin:0;
     }
+
+    *{
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    
     *:focus { outline:none; }
     ul{
         padding-left: 0;

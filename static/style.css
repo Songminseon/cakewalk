@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 
 :root {
    /* Cake Walk */
@@ -44,12 +44,11 @@
 
 
 body{
-    font-family: 'Noto Sans KR', sans-serif;
     margin:0;
 }
 
 *{
-    font-family: 'Poor Story', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 *:focus { outline:none; }
