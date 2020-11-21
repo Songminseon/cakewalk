@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="font-family: 'Noto Sans KR',sans-serif;display:flex;flex-direction: column;padding-left:35rem;transform:translateY(50%);";>
+        <img src="{% static 'images/logo/logotype.png' %}" alt=""style="width:200px; height:80px;transform:translateX(-8%);">
+        <h1 style="color: #ea5743;padding-bottom:15px;margin-top: 0;">이메일 주소인증</h1>
+        <div style="padding-bottom:20px;">안녕하세요. 케이크워크입니다. <br><br>입력하신 이메일 <span style="color: #ea5743">{{mem_email}}</span>으로 인증 링크가 전송되었습니다.</div>
+        <button style="width:20%;padding:20px;background-color: orangered;border:none;font-size:18px;font-weight: bolder;">
+        <a href="{% url 'index' %}" style="text-decoration:none;color:white;width:100px;">홈으로 가기</a></button>
+    </div>
+</body>
+</html>

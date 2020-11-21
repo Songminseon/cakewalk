@@ -1,0 +1,899 @@
+
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %} 
+
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cakewalk</title>
+        <link rel="shortcut icon" href="{% static 'images/logo/favicon_scale.png' %}">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+        <link href="cssfile.css" media="screen and (min-width: 512px) and (max-width: 1024px)" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+        <!-- <script src="{% static 'main.js' %}" defer></script> -->
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="{% static 'store_style.css' %}">
+
+        <!--range slider-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'dualrange.css' %}">
+
+        <!-- calendar js-->
+        <script src="{% static 'store_cake_calendar.js' %}" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="header_logo">
+                <a href="{% url 'index' %}"><img src="{% static 'images/logo/whitelogo.PNG' %}" alt=""></a>
+            </div>
+            <div class="header_menu">
+                <ul>
+                    <li class="header_menu_home"><a href="{% url 'index' %}">홈</a></li>
+                    <li class="header_menu_store"><a href="{% url 'store_main' %}">스토어</a></li>
+                    <li class="header_menu_community"><a href="#" onclick="not_develop()">커뮤니티</a></li>
+                    <li class="header_menu_event"><a href="#" onclick="not_develop()">이벤트</a></li>
+                    <li class="header_menu_service"><a href="#" onclick="not_develop()">고객센터</a></li>
+                </ul>
+            </div>
+            <div class="header_right">
+                <ul class="header_right_ul">
+                    <li class="header_icon"><a href="#"><i class="xi-bell-o"></i></a></li>
+                    <li class="header_icon"><a href="#"><i class="xi-search"></i></a></li>
+                    <li class="header_icon"><a href="#"><i class="xi-heart-o"></i></a></li>
+                </ul>
+                    <!-- <div class="dropdown">
+                        <button class="dropbtn">                                                  
+                            <img src="{% static 'images/logo/favicon_scale.png' %}" alt="">
+                            <i class="xi-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <li><a href="#" onclick="not_develop()">장바구니  </a></li>
+                            <li><a href="#" onclick="not_develop()">주문 내역 </a></li>
+                            <li><a href="#" onclick="not_develop()">마이페이지</a></li>
+                            <li class="header_right_login"><a href="{% url 'logout'%}">로그아웃</a></li>
+                        </div>
+                    </div> -->
+                <ul class="header_right_ul2">
+                    <li class="header_right_search"><a href="#" onclick="not_develop()"><i class="xi-search"></i>검색</a></li>
+                    <li class="header_right_like"><a href="#" onclick="not_develop()"><i class="xi-heart-o"></i>찜</a></li>
+                    <li id= "open_login" class="header_right_login">로그인</li>
+                </ul>
+            </div>
+            
+        </header>
+
+
+        <section class = "header_below">
+            <div class = "header_below_container">
+                <ul class="filter_ul">
+                    <li><h3 id="filter_title_font">가까이에 있는 예쁜 케이크를 찾아보세요!    </h3></li>
+                    
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropdownbtn" type="button" data-toggle="dropdown">
+                                  광역시/도&nbsp;&nbsp;
+                                  <span class="caret"></span>
+                                  <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                  <div id="city_caret"></div>
+                                </button>
+                                <ul class="dropdown-content" id="cityname">
+                                    
+                                    {% for city in citynamelist %}
+                                    <li><a href="#">{{city}}</a></li>
+                                    {% endfor %}
+                                  
+                                </ul>
+                            </div>
+                        </li>
+                            
+                            <li > <!--class="main_menu"-->
+                                <div class="dropdown">
+                                    <button class="dropdownbtn" type="button" data-toggle="dropdown">
+                                      시/군/구&nbsp;&nbsp;
+                                      <span class="caret"></span>
+                                      <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                      <div id="smallcity_caret"></div>
+                                    </button>
+                                    <ul class="dropdown-content" id="smallcityname">
+                                       
+                                        {% for location in locations %}
+                                        {% if location.cityname == selectedcity %}
+                                        <li><a href="#">{{location.smallcityname}}</a></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                        
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><button class="filter_button2">설정</button></li>
+                        </ul>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+
+                    var selectedcity = "{{selectedcity}}";
+                    var locations = "{{locations}}";
+                    console.log(locations);
+                    var locations = "{{locations}}".replace(/&#x27;/g,"\"");
+                    console.log(locations);
+                    console.log(selectedcity);
+                    //var placeData = JSON.parse(document.getElementById('jsonData').textContent);
+                    
+                    var placeData = JSON.parse(locations);
+                    console.log(placeData);
+                    var smallcity_ul = document.getElementById("smallcityname");
+                    
+                    var cityname;
+                    var smallcityname;
+        
+                    //$('#cityname li').on('click', function(){
+                    $('#cityname li').click(function(){
+                        cityname = $(this).text();
+                        
+                        //var cityname = $(this).text();
+                        //var cityname = $(this).text();
+                        console.log(cityname);
+                        
+                        //$('#smallcityname').append('<li>'+cityname+'</li>');
+                        selectedcity = cityname;
+                        smallcity_ul.innerHTML = "";
+
+
+                        var city_caret = document.getElementById('city_caret');
+                        var smallcity_caret = document.getElementById('smallcity_caret');
+                        
+                        city_caret.innerHTML = cityname;
+                        smallcity_caret.innerHTML = "";
+                        // /smallcity_ul.append("<li>cityname</li>");
+                        
+                        //document.getElementById('smallcityname').append('<li>000</li>');
+                        //var jsonData = JSON.parse(placeData[key1]);
+                        //console.log(key1);
+                        //console.log(jsonData);
+                    
+                            // for(var key2 in jsonData){
+                            //     console.log(key2);
+                            //     if(selectedcity === jsonData[key1]){
+                            //         smallcity_ul.innerHTML += "<li><a href=\"#\">"+jsonData[key2]+"</a></li>";
+                            //     }
+                            //     // document.write(key2+" : "+jsonData[key2]+"<br>");
+                            // }
+                        
+        
+                        for(var i = 0; i < Object.keys(placeData).length; i++){
+                            if(selectedcity == placeData[i].cityname){
+                                smallcity_ul.innerHTML += "<li><a href=\"#\">"+placeData[i].smallcityname+"</a></li>";
+                                // smallcity_caret.innerHTML = cityname;
+                            }
+                        }
+                        
+                        
+                        $('#smallcityname li').click(function(){
+                            smallcityname = $(this).text();
+                            
+                            console.log(smallcityname);
+                            var smallcity_caret = document.getElementById('smallcity_caret');
+                            smallcity_caret.innerHTML = smallcityname;
+        
+                        });
+                        
+                    });
+
+                    // $('#smallcityname li').click(function(){
+                    //     var smallcityname = $(this).text();
+                    //     console.log("smallcityname li run");
+                    //     console.log(smallcityname);
+                    //     var smallcity_caret = document.getElementById('smallcity_caret');
+                    //     smallcity_caret.innerHTML = smallcityname;
+        
+                    // });
+
+                    $('filter_button2').click(function(){
+                        // 지역별 필터 설정 버튼 눌렀을 때
+                        cityname;
+                        smallcityname;
+                        var div_cake_array = document.getElementById("for_sort");
+                        var products = "{{products}}";
+                        var productData = JSON.parse(products);
+                        for(var i = 0; i < Object.keys(productData).length; i++){
+                            div_cake_array.innerHTML = "<div>"+"<img class=\"cake_picture\" src=\"{{ product.product_image.url }}\" alt=\"error\">"+
+                            "<div class=\"hot_product_store_description\"\>" + 
+                            "<div class=\"description_store\"\>" +
+
+                                "<h5>{{product.str_id}}</h5>" +
+                                "<h5>{{store.str_name}}</h5>" +
+                                "<h4>{{product.product_name}}</h4>" +
+                            + "</div>" +
+                            "<div class=\"hot_product_price\">" +
+                                "<h4>{{product.product_default_price}}</h4>" +
+                            "</div>"+
+                        "</div>"+
+                    "</div>";
+                        }
+                        
+                
+
+                    });
+        
+                </script>
+
+                
+            </div>
+            
+        </section>
+
+
+        <section class = "white_area">
+            
+            <div class="button_box">
+                <button class="cake_market_button">
+                    <div class="bold_font_button cake" ><a href="#" onclick="cake_area()">케이크별 보기</a></div>
+                </button>
+                <button class="cake_market_button">
+                    <div class="bold_font_button market"><a href="#" onclick="market_area()">마켓별 보기</a></div>
+                </button>
+            </div>
+            
+            <section id="cake_area" class="grey_box">
+                <ul class="grey_box_ul">
+                    <li class="grey_box_button"><p class="grey_box_normal_font">필터 설정        |</p></li>
+                    <li class="grey_box_button"><a href="#">인기순</a>
+                        <div class="sub-menu-1">
+                            <ul>
+                                <li><a href="#">인기순 </a></li>
+                                <li><a href="#">최신순</a></li>
+                                <li><a href="#">가격순</a></li>
+                            </ul>
+                        </div>
+                    
+                    </li>
+                    <li class="grey_box_button"><a href="#">가격</a>
+                        <div class="sub-menu-2">
+                            <p class="sub-menu-2-detail-font">케이크의 가격은 추가금액이 붙기 전 기본 가격입니다.</p>
+                            <div class="range_container">
+                                <!--가격 range-->
+                                <!-- <div >
+                                    <input type="range" id="input_left" min="15000" max="75000" value="30000" step="5000" id="range1" class="multi_range_slider">
+                                    
+                                </div> -->
+                                
+                                <div slider id="slider-distance">
+                                    <div>
+                                      <div inverse-left style="width:70%;"></div>
+                                      <div inverse-right style="width:70%;"></div>
+                                      <div range style="left:30%;right:40%;"></div>
+                                      <span thumb style="left:30%;"></span>
+                                      <span thumb style="left:60%;"></span>
+                                      <div sign style="left:30%;">
+                                        <span id="min_price">15000</span>
+                                      </div>
+                                      <div sign style="left:60%;">
+                                        <span id="max_price">70000</span>
+                                      </div>
+                                      
+                                    </div>
+                                    
+                                    <input id="minprice" type="range" tabindex="0" value="30000" max="95000" min="0" step="5000" oninput="
+                                    this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                                    var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                    var children = this.parentNode.childNodes[1].childNodes;
+                                    children[1].style.width=value+'%';
+                                    children[5].style.left=value+'%';
+                                    children[7].style.left=value+'%';children[11].style.left=value+'%';
+                                    children[11].childNodes[1].innerHTML=this.value;" />
+                                  
+                                    <input id="maxprice" type="range" tabindex="0" value="60000" max="95000" min="0" step="5000" oninput="
+                                    this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                                    var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                    var children = this.parentNode.childNodes[1].childNodes;
+                                    children[3].style.width=(100-value)+'%';
+                                    children[5].style.right=(100-value)+'%';
+                                    children[9].style.left=value+'%';children[13].style.left=value+'%';
+                                    children[13].childNodes[1].innerHTML=this.value;" />
+                                </div>
+                                
+                                
+                            </div>
+                            <ul class="price_range_ul">
+                                <li class="price_box">
+                                    <p class="price_title_font">최저 가격</p>
+                                    <p id="p_min_price" class="price_font">15000 원</p>
+                                </li>
+                                <li>~</li>
+                                <li class="price_box">
+                                    <p class="price_title_font">최고 가격</p>
+                                    <p id="p_max_price" class="price_font">70000 원</p>
+                                </li>
+                            </ul>
+                            <script>
+                                var minprice = $("#minprice");
+                                minprice.change(function(){
+
+                                    //alert(minprice.val());
+                                    var min_price = document.getElementById("min_price");
+                                    min_price.innerHTML = minprice.val();
+                                    var p_min_price = document.getElementById("p_min_price");
+                                    console.log('p_min_price',p_min_price);
+                                    p_min_price.innerHTML = minprice.val() + "원";
+                                });
+
+                                var maxprice = $("#maxprice");
+                                maxprice.change(function(){
+
+                                    //alert(minprice.val());
+                                    var max_price = document.getElementById("max_price");
+                                    max_price.innerHTML = maxprice.val();
+                                    var p_max_price = document.getElementById("p_max_price");
+                                    p_max_price.innerHTML = maxprice.val()+ "원";
+                                });
+                            </script>
+                            <div class="btn2_location">
+                                <button class="sub-menu-4-btn2"><a href=#>초기화</a></button>
+                                <button class="sub-menu-4-btn2"><a href=#>설정</a></button>
+                            </div>
+                        </div>
+
+                    
+                    
+                    </li>
+
+                    <li class="grey_box_button"><a href="#">픽업 날짜</a>
+                        <div class="sub-menu-3">
+                            <div class="calendar_container">
+                                 <!-- <img src="{% static 'images/캘린더.jpg' %}">  -->
+                                 <div class="calendar_container">
+                                    <div class="calendar">
+                                        <div class="month">
+                                            <i class="xi-angle-left prev"></i>
+                                            <div class="date">
+                                                <h1></h1>
+                                            </div>
+                                            <i class="xi-angle-right next"></i>
+                                        </div>
+                                        <div class="weekdays">
+                                            <div>일</div>
+                                            <div>월</div>
+                                            <div>화</div>
+                                            <div>수</div>
+                                            <div>목</div>
+                                            <div>금</div>
+                                            <div>토</div>
+                                        </div>
+                                        <div class="days">
+                                        </div>
+                                        <div class="able-unable">
+                                            <div class="able">
+                                                <div class="redpoint"></div>
+                                                <span>선택</span>
+                                            </div>
+                                            <div class="unable">
+                                                <div class="greypoint"></div>
+                                                <span>불가</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn2_location">
+                                <button class="sub-menu-4-btn2"><a href=#>초기화</a></button>
+                                <button class="sub-menu-4-btn2"><a href=#>설정</a></button>
+                            </div>
+                        </div>
+                    
+                    </li>
+
+                    <li class="grey_box_button"><a href="#">카테고리</a>
+                        <div class="sub-menu-4">
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>전체</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>생일</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>기념일</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>레터링</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>일러스트</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>축하</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>이미지</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>빈티지</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>퓨전</a></button>
+                            <button class="sub-menu-4-btn" value="unclicked"><a href=#>도시락</a></button>
+                            <div class="btn2_location">
+                                <button class="sub-menu-4-btn2"><a href=#>초기화</a></button>
+                                <button class="sub-menu-4-btn2"><a href=#>설정</a></button>
+                            </div>
+                            
+                        </div>
+                    <script>
+
+                        $('.sub-menu-4-btn').click(function(){
+                            var current_button = $(this);
+                            console.log('current', current_button);
+                            console.log('current_button_value', current_button.attr('value'));
+                            if(current_button.attr('value') == "unclicked"){
+                                current_button.val("clicked");
+                                current_button.css({backgroundColor : '#ea5743'});
+                                current_button.children().css({color : '#ffffff'});
+                                console.log('current_button_value', current_button.attr('value'));
+                            }else{
+                                current_button.val("unclicked");
+                                current_button.css({backgroundColor : '#ffffff'});
+                                current_button.children().css({color : '#000000'});
+                            }
+                        })
+
+                        $('.sub-menu-4-btn2').click(function(){
+                            var current_button = $(this);
+                            var all_button = $('.sub-menu-4').find('.sub-menu-4-btn');
+                            $.each(all_button, function(index, el){
+                                el = $(this);
+                                el.css({backgroundColor : '#ffffff'});
+                                el.children().css({color : '#000000'});
+                            })
+                                
+                                
+                        })
+                    </script>
+                    </li>
+                    <li class="grey_box_button"><button class="grey_box_set_button"><a class="set_button_font" href="#">적용하기</a></button></li>
+                </ul>
+            </section>
+
+            <section class="cake_array_box">
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/3.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/4.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/5.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/3.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/4.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/5.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/3.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/2.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/4.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/5.PNG' %}" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cake_array">
+                    <div><img class="cake_picture" src="{% static 'images/cakes/1.PNG' %}"" alt="">
+                        <div class="hot_product_store_description">
+                            <div class="description_store">
+                                <h5>영케이크</h5>
+                                <h4>보랏빛하트 케이크</h4>
+                            </div>
+                            <div class="hot_product_price">
+                                <h4>25,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+        </section>
+        
+        
+        <footer>
+            <div class="footer_line">
+                <div class="footer_description">
+                    <ul class="footer_story">
+                        <li><a href="#">브랜드 스토리</a></li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보급급침</a></li>
+                    </ul>
+                    <ul class="footer_icon">
+                        <li><a href="https://www.instagram.com/youzosong/?hl=ko"><i class="xi-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/likelionatseoultech"><i class="xi-facebook"></i></a></li>
+                        <li><a href="#"><i class="xi-youtube-play"></i></a></li>
+                        <li><a href="#"><i class="xi-twitter"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer_company">
+                    <ul>
+                        <li>(주)케이크워크</li>
+                        <li>대표 조소영</li>
+                        <li>사업자등록번호 123-45-67890</li>
+                        <li>통신판매업신고번호 2020-서울광진-0730</li>
+                    </ul>
+                </div>
+                <div class="footer_address">
+                    <ul>
+                        <li>서울 광진구 아차산로 213 웅진빌딩 B1</li>
+                        <li>고객센터 02-461-8172</li>
+                        <li>팩스 02)970-6667</li>
+                    </ul>
+                </div>
+                <div class="footer_sentence">
+                    <ul>
+                        <li>(주)케이크워크는 통신판매중개자로서 통신판매의 당사자가 아니며, 입점업체가      등록된 상품, 상품정보 및 거래에 대하여 (주)케이크워크는 일체 책임을 지지
+                            않습니다.</li>
+                        <li>©2020 Cakewalk Corp. All reserved.</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>

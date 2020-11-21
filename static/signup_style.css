@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+*{
+    outline:none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin:0;
+    display:flex;
+    flex-direction: column;
+    padding:25px 100px 100px 100px;
+}
+
+h2,h3,span{
+    margin:10px 0 0 0;
+    color:orangered;
+}
+.title{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+#header{
+    display:flex;
+    justify-content: space-between;
+}
+#logo{
+    width:200px;
+    height:80px;
+}
+.exit_btn{
+    border:none;
+    background-color: transparent;
+    font-size:24px;
+    cursor: pointer;
+}
+.exit_btn a{
+    text-decoration:none;
+    color:orangered;
+}
+.register-form{
+    position: absolute;
+    width:500px;
+    height:700px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-30%);
+    padding-bottom:200px;
+}
+.signup{
+    display:flex;
+    flex-direction: column;
+    padding-bottom:100px;
+
+}
+.color_grey{
+    color:lightgray;
+}
+.signup >.signup_input{
+    padding:10px 200px 10px 5px;
+    margin:8px 0;
+}
+#btnJoin{
+    padding:5px 150px;
+    background-color: orangered;
+    border:none;
+    border-radius: 50px;
+    margin-top:30px;
+}
+.checkbox{
+    padding:10px 0;
+    width:500px;
+    justify-content: space-between;
+}
+
+input[type="checkbox"]{
+    position: absolute;
+    left:-3000%;
+}
+input[type="checkbox"] + label:before{ 
+    content:"";
+    display:inline-block;
+    width:15px;
+    height:15px;
+    border:1px solid black;
+    position: relative;
+    top:3px;
+    border-radius: 3px;
+    margin-right:4px;
+}
+input[type="checkbox"]:checked + label:before{
+    transition: all 0.5s;
+    background:url(images/store_button/checked.PNG) no-repeat; width:15px; height:15px;
+}
+.checkbox a{
+    display:absolute;
+    float:right;
+}
+#btnJoin h1{
+    color:white;
+}
