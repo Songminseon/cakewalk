@@ -12,6 +12,14 @@
 ### django-import-export
 ### six
 
+## 설치
+### Django < 3
+### pip install --user django-import_export
+### python -m pip install django-allauth
+
+## 실행
+### python manage.py runserver
+
 # Git에 올릴 때 다음같은 사항 꼭 지켜주세요
 ## 1. github에 접속하여 본인이 작업한 파일이 최신파일인지 꼭 확인하고, branch를 이용하여 작업할 것
 
